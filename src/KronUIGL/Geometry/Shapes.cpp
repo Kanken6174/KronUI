@@ -138,16 +138,9 @@ EmptyRectangle::EmptyRectangle(glm::vec3 origin,float width, float height, float
     mode = RenderMode::Triangles;
 
     vertices.clear();
-    //verticesAmount = 4*2*3*VERTICES_SIZE;   //4 rectangles, * 2 triangles * 3 points * Verticies size
-    //vertices.resize(verticesAmount);
 
     glm::vec3 heightOffset = glm::vec3(0,height,0);
     glm::vec3 widthOffset = glm::vec3(width,0,0);
-
-    _points[0] = Point(origin); //bottom left
-    _points[1] = Point(origin + widthOffset); //bottom right
-    _points[2] = Point(origin + heightOffset); //top left
-    _points[3] = Point(origin + widthOffset + heightOffset); //top right
 }
 
 std::vector<float> EmptyRectangle::generateVertices(){
@@ -183,7 +176,7 @@ std::vector<float> EmptyRectangle::generateVertices(){
     //0********************1 X  ↓
     //                *    *
     //                *next*
-    origin = pointsA[3].getVector()-thicknessOffSetY;
+    origin = pointsA[2].getVector();
     Point pointsB[4] = {Point(glm::vec3(origin)),    //bottom left
                         Point(glm::vec3(origin+XOffset)),    //bottom right
                         Point(glm::vec3(origin+thicknessOffSetY)),                //top left
@@ -197,11 +190,12 @@ std::vector<float> EmptyRectangle::generateVertices(){
     //**** * *
     //   *  **
     //***0***1
-    origin = pointsB[1].getVector()-thicknessOffSetX-YOffset;
+    
+    origin = pointsB[1].getVector()-YOffset-thicknessOffSetX;
     Point pointsC[4] = {Point(glm::vec3(origin)),                                  //bottom left
                         Point(glm::vec3(origin+thicknessOffSetX)),                 //bottom right
                         Point(glm::vec3(origin+YOffset)),                          //top left
-                        Point(glm::vec3(origin+YOffset+thicknessOffSetX+XOffset))  //top right
+                        Point(glm::vec3(origin+YOffset+thicknessOffSetX))  //top right
                         };
     _sides[2] = Rectangle(pointsC);
 
@@ -212,11 +206,12 @@ std::vector<float> EmptyRectangle::generateVertices(){
     //0****************1**** X  ↓
     //
     //
-    origin = pointsC[0].getVector()-thicknessOffSetX;
-    Point pointsD[4] = {Point(glm::vec3(origin)),    //bottom left
-                        Point(glm::vec3(origin+XOffset)),    //bottom right
-                        Point(glm::vec3(origin+thicknessOffSetY)),                //top left
-                        Point(glm::vec3(origin+XOffset+thicknessOffSetY))     //top right
+    
+    origin = pointsC[0].getVector()-thicknessOffSetY;
+    Point pointsD[4] = {Point(glm::vec3(origin-XOffset+thicknessOffSetX)),    //bottom left
+                        Point(glm::vec3(origin+thicknessOffSetX)),    //bottom right
+                        Point(glm::vec3(origin+thicknessOffSetY-XOffset+thicknessOffSetX)),                //top left
+                        Point(glm::vec3(origin+thicknessOffSetY+thicknessOffSetX))     //top right
                         };
     _sides[3] = Rectangle(pointsD);
     //-------------------------------------

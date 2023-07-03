@@ -8,6 +8,7 @@ void drawGeometry(Drawable* toDraw){
     toDraw->shader->setVec3("textColor", RED);
     switch(toDraw->mode){
         case RenderMode::Triangles:
+                glDisable(GL_CULL_FACE);
                 std::cout << "drawing: " << toDraw->bufferID << " verticies: " << toDraw->verticesAmount << std::endl;
                 // 1st attribute buffer : vertices
                 glBindBuffer(GL_ARRAY_BUFFER, toDraw->bufferID);
@@ -16,11 +17,11 @@ void drawGeometry(Drawable* toDraw){
                 3,                   //3 (xyz) per verticies
                 GL_FLOAT,            // type
                 GL_FALSE,            // normalized?
-                0,   // stride
+                3*sizeof(float),   // stride
                 (void*)0             // array buffer offset
                 );
                 glEnableVertexAttribArray(0);
-                glDrawArrays(GL_POLYGON, 0, toDraw->verticesAmount); // Starting from vertex 0; 3 vertices total -> 1 triangle
+                glDrawArrays(GL_TRIANGLES, 0, toDraw->verticesAmount); // Starting from vertex 0; 3 vertices total -> 1 triangle
                 glDisableVertexAttribArray(0);
         break;
         default:

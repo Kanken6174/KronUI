@@ -35,7 +35,7 @@ int main(){
     float heading = 0;
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
-    EmptyRectangle* er = new EmptyRectangle(glm::vec3(-0.5,-0.5,0),0.5,0.5,0.1);
+    EmptyRectangle* er = new EmptyRectangle(glm::vec3(0.5,0.5,0),0.7,0.5,0.1);
     
     GeometryRenderer* gr = new GeometryRenderer();
     er->generateVertices();
