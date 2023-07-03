@@ -35,13 +35,13 @@ int main(){
     float heading = 0;
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
-    EmptyRectangle* er = new EmptyRectangle(glm::vec3(0,0,0),0.5,0.5,0.1);
+    EmptyRectangle* er = new EmptyRectangle(glm::vec3(-0.5,-0.5,0),0.5,0.5,0.1);
     
     GeometryRenderer* gr = new GeometryRenderer();
     er->generateVertices();
     gr->addShapeToBuffer(er);
 
-    Shader* rps = new Shader("","./../shaders/text.vs", "./../shaders/text.fs");
+    Shader* rps = new Shader("","./../shaders/geom.vs", "./../shaders/geom.fs");
     Shader shader = Shader("","./../shaders/text.vs", "./../shaders/text.fs");
     er->shader = rps;
     //rps->SetPlacementMatrix(1,1,0.5,0.5,0.5);
@@ -60,8 +60,7 @@ int main(){
 
         // Clear the screen
         glClear(GL_COLOR_BUFFER_BIT);
-        
-        // Draw the compass
+
         glBindVertexArray(VertexArrayID);
         er->drawSelf();
         tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));

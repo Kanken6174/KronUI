@@ -75,7 +75,7 @@ std::vector<float> Triangle::generateVertices(){
     for(int i  = 0; i < 3; i++){
         std::vector<float> verts = _points[i].generateVertices();
         for(int j = 0; j < VERTICES_SIZE; j++)
-            vertices[i+j] = verts[j];
+            vertices[i*VERTICES_SIZE+j] = verts[j];
     }
     return vertices;
 }
@@ -103,22 +103,22 @@ Rectangle::Rectangle(const Rectangle& t) : shapeElement(){
 }
 
 std::vector<float> Rectangle::generateVertices(){
-    std::vector<float> triangleVerts;
-    Point ptArr[3] = {Point(_points[0].getVector()),Point(_points[1].getVector()),Point(_points[2].getVector())};
-    Triangle t = Triangle(ptArr);
-    for(int i = 0; i < 2; i++){
-        std::cout << "in" << std::endl;
-        std::cout << "ptArr done" << std::endl;
-        t = Triangle(ptArr);
-        std::cout << "tri done" << std::endl;
-        triangleVerts = t.generateVertices();    //generate the vertices for the 2 triangles
-        for(int j = 0; j < (3*VERTICES_SIZE); j++){
-            std::cout << i << j << std::endl;
-            vertices[i*(3*VERTICES_SIZE)+j] = triangleVerts[j];   //add them to the rectangle's verticies
-        }
-        std::cout << "out" << std::endl;
+    // First triangle
+    Point ptArr1[3] = {Point(_points[0].getVector()), Point(_points[1].getVector()), Point(_points[2].getVector())};
+    Triangle t1 = Triangle(ptArr1);
+    std::vector<float> triangleVerts1 = t1.generateVertices();
+    for(int j = 0; j < (3*VERTICES_SIZE); j++){
+        vertices[j] = triangleVerts1[j];
     }
-    std::cout << "return"<< std::endl;
+
+    // Second triangle
+    Point ptArr2[3] = {Point(_points[1].getVector()), Point(_points[2].getVector()), Point(_points[3].getVector())};
+    Triangle t2 = Triangle(ptArr2);
+    std::vector<float> triangleVerts2 = t2.generateVertices();
+    for(int j = 0; j < (3*VERTICES_SIZE); j++){
+        vertices[3*VERTICES_SIZE+j] = triangleVerts2[j];
+    }
+
     return vertices;
 }
 
@@ -138,8 +138,8 @@ EmptyRectangle::EmptyRectangle(glm::vec3 origin,float width, float height, float
     mode = RenderMode::Triangles;
 
     vertices.clear();
-    verticesAmount = 4*2*3*VERTICES_SIZE;   //4 rectangles, * 2 triangles * 3 points * Verticies size
-    vertices.resize(verticesAmount);
+    //verticesAmount = 4*2*3*VERTICES_SIZE;   //4 rectangles, * 2 triangles * 3 points * Verticies size
+    //vertices.resize(verticesAmount);
 
     glm::vec3 heightOffset = glm::vec3(0,height,0);
     glm::vec3 widthOffset = glm::vec3(width,0,0);
@@ -222,12 +222,21 @@ std::vector<float> EmptyRectangle::generateVertices(){
     //-------------------------------------
     std::cout << "done verts" <<std::endl;
     std::vector<float> sideVertices;
-    for(int i  = 0; i < 4; i++){
+    for(int i = 0; i < 4; i++){
         sideVertices = _sides[i].generateVertices();
-        std::cout << sideVertices.size() <<std::endl;
-        std::cout << vertices.size() <<std::endl;
-        std::copy(sideVertices.begin(), sideVertices.end(), vertices.begin()+(18*i));
+        std::cout << "sideVertices.size() " << sideVertices.size() << std::endl;
+
+        // Print out the contents of sideVertices
+        for(int j = 0; j < sideVertices.size(); j++) {
+            std::cout << sideVertices[j] << " ";
+        }
+        std::cout << std::endl;
+
+        std::cout << "vertices.size() before insertion " << vertices.size() << std::endl;
+        vertices.insert(vertices.end(), sideVertices.begin(), sideVertices.end());
+        std::cout << "vertices.size() after insertion " << vertices.size() << std::endl;
     }
+
     
     return vertices;
 }

@@ -8,18 +8,19 @@ void drawGeometry(Drawable* toDraw){
     toDraw->shader->setVec3("textColor", RED);
     switch(toDraw->mode){
         case RenderMode::Triangles:
+                std::cout << "drawing: " << toDraw->bufferID << " verticies: " << toDraw->verticesAmount << std::endl;
                 // 1st attribute buffer : vertices
-                glEnableVertexAttribArray(0);
                 glBindBuffer(GL_ARRAY_BUFFER, toDraw->bufferID);
                 glVertexAttribPointer(
                 0,                   // attribute 0. No particular reason for 0, but must match the layout in the shader.
                 3,                   //3 (xyz) per verticies
                 GL_FLOAT,            // type
                 GL_FALSE,            // normalized?
-                0,                   // stride
+                0,   // stride
                 (void*)0             // array buffer offset
-                );  
-                glDrawArrays(GL_LINE_LOOP, 0, toDraw->verticesAmount/3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+                );
+                glEnableVertexAttribArray(0);
+                glDrawArrays(GL_POLYGON, 0, toDraw->verticesAmount); // Starting from vertex 0; 3 vertices total -> 1 triangle
                 glDisableVertexAttribArray(0);
         break;
         default:
@@ -28,20 +29,36 @@ void drawGeometry(Drawable* toDraw){
 }
 
 void GeometryRenderer::addShapeToBuffer(Drawable* toRender){
-    float* arr = new float[toRender->verticesAmount];
     std::vector<float> verticies = toRender->generateVertices();
+    toRender->verticesAmount = verticies.size();
+    float* arr = new float[toRender->verticesAmount];
+    for (const auto &value : verticies) {
+        std::cout << value << ' ';
+    }
+    std::cout << std::endl;
+
     std::copy(verticies.begin(), verticies.end(), arr); //transfer data to the heap
     int i = 0;
-    std::cout << std::endl;
 
     GLuint vertexhandle;
     glGenBuffers(1, &vertexhandle);
     glBindBuffer(GL_ARRAY_BUFFER, vertexhandle);
-    glBufferData(GL_ARRAY_BUFFER, toRender->verticesAmount, arr, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, toRender->verticesAmount * sizeof(float), arr, GL_STATIC_DRAW);
+
+    float* bufferData = new float[toRender->verticesAmount];
+    glGetBufferSubData(GL_ARRAY_BUFFER, 0, toRender->verticesAmount * sizeof(float), bufferData);
+
+    std::cout << "Buffer contents:" << std::endl;
+    for(int i = 0; i < toRender->verticesAmount; ++i) {
+        std::cout << bufferData[i] << ' ';
+    }
+    std::cout << std::endl;
 
     arrays[vertexhandle] = arr;
 
     toRender->bufferID = vertexhandle;
     toRender->drawerFunction = &drawGeometry;
     toRender->mode = RenderMode::Triangles;
+
+    std::cout << "shape added to buffer: " << toRender->bufferID << std::endl;
 }

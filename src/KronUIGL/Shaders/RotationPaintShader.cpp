@@ -20,7 +20,7 @@ RotationPaintShader::RotationPaintShader(std::string reflectiveName):Shader(refl
         std::cout << "use" << std::endl;
         use();std::cout << "SetPlacementMatrix" << std::endl;
         SetPlacementMatrix(1,0,0,0,0);std::cout << "setPaint" << std::endl;
-        setPaint(0.5,0.5,0.5);
+        setPaint(0.5f,0.5f,0.5f);
 }
 
 void RotationPaintShader::SetPlacementMatrix(float scale, float angle, float x, float y, float z){

@@ -23,7 +23,12 @@ public:
     GLuint bufferID;
     Shader* shader;
     void (*drawerFunction)(Drawable*);
-    void drawSelf(){drawerFunction(this);}
+    void drawSelf(){
+        if(drawerFunction != nullptr)
+            drawerFunction(this);
+        else
+            std::cout << "drawer function was null on drawable: " << this->bufferID << std::endl;
+    }
 };
 
 #endif

@@ -5,6 +5,7 @@
 #include "./../Window/KronUIWindow.hpp"
 #include "./../../Freetype/TrueTypeManager.hpp"
 
+//a utility that can generate flat text on a X and Y coordinate
 class TextRenderer{
 private:
     Shader _shader;
