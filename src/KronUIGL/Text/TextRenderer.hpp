@@ -1,0 +1,16 @@
+#include <iostream>
+#include <map>
+#include <string>
+#include "./../Shaders/Shader.hpp"
+#include "./../Window/KronUIWindow.hpp"
+#include "./../../Freetype/TrueTypeManager.hpp"
+
+class TextRenderer{
+private:
+    Shader _shader;
+    KronUIWindow* _window;
+    TrueTypeManager* _ttfManager;
+public:
+    TextRenderer(Shader shader, KronUIWindow* window, TrueTypeManager* ttfManager);
+    void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
+};

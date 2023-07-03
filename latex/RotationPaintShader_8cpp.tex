@@ -1,0 +1,55 @@
+\hypertarget{RotationPaintShader_8cpp}{}\doxysection{src/\+Kron\+UIGL/\+Shaders/\+Rotation\+Paint\+Shader.cpp File Reference}
+\label{RotationPaintShader_8cpp}\index{src/KronUIGL/Shaders/RotationPaintShader.cpp@{src/KronUIGL/Shaders/RotationPaintShader.cpp}}
+{\ttfamily \#include \char`\"{}./\+Rotation\+Paint\+Shader.\+hpp\char`\"{}}\newline
+Include dependency graph for Rotation\+Paint\+Shader.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RotationPaintShader_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{RotationPaintShader_8cpp_a6afe59eab2731bbe6028a1c474e6182a}{fragment\+Code}}
+\item 
+const std\+::string \mbox{\hyperlink{RotationPaintShader_8cpp_a97d354d2d18abdb3ffafeca95405cba7}{vertex\+Code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{RotationPaintShader_8cpp_a6afe59eab2731bbe6028a1c474e6182a}\label{RotationPaintShader_8cpp_a6afe59eab2731bbe6028a1c474e6182a}} 
+\index{RotationPaintShader.cpp@{RotationPaintShader.cpp}!fragmentCode@{fragmentCode}}
+\index{fragmentCode@{fragmentCode}!RotationPaintShader.cpp@{RotationPaintShader.cpp}}
+\doxysubsubsection{\texorpdfstring{fragmentCode}{fragmentCode}}
+{\footnotesize\ttfamily const std\+::string fragment\+Code}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=    R\textcolor{stringliteral}{"{}(\#version 300 es}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        precision mediump float;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        uniform vec3 paint;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        out vec3 color;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        void main()\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                           color = paint;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        \})"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{RotationPaintShader_8cpp_a97d354d2d18abdb3ffafeca95405cba7}\label{RotationPaintShader_8cpp_a97d354d2d18abdb3ffafeca95405cba7}} 
+\index{RotationPaintShader.cpp@{RotationPaintShader.cpp}!vertexCode@{vertexCode}}
+\index{vertexCode@{vertexCode}!RotationPaintShader.cpp@{RotationPaintShader.cpp}}
+\doxysubsubsection{\texorpdfstring{vertexCode}{vertexCode}}
+{\footnotesize\ttfamily const std\+::string vertex\+Code}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=      R\textcolor{stringliteral}{"{}(\#version 300 es}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        precision mediump float;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        uniform mat4 transformation;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        in vec3 position;}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        void main()}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                            gl\_Position = transformation * vec4(position, 1.0);}}
+\DoxyCodeLine{\textcolor{stringliteral}{                                        \})"{}}}
+
+\end{DoxyCode}

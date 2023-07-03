@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="structCharacter" kind="struct"><name>Character</name>
+    <member refid="structCharacter_1a411760a6a33f2cb54dd6a0138e038a46" kind="variable"><name>TextureID</name></member>
+    <member refid="structCharacter_1aaaa598050e0ef590fe6903fd2bab40b8" kind="variable"><name>Size</name></member>
+    <member refid="structCharacter_1afef98bf9c7f5313d96476f6f3f85f872" kind="variable"><name>Bearing</name></member>
+    <member refid="structCharacter_1a5338c0800545802a63f8e4945573cbe7" kind="variable"><name>Advance</name></member>
+  </compound>
+  <compound refid="classDrawable" kind="class"><name>Drawable</name>
+    <member refid="classDrawable_1a6ef0a45864cdb86a2f7ee86df33cf1c3" kind="variable"><name>mode</name></member>
+    <member refid="classDrawable_1ad66b72e5c70f154ba14f736779702edf" kind="variable"><name>bufferID</name></member>
+    <member refid="classDrawable_1a22cff63181e84f25e64f2c7e14779e3f" kind="variable"><name>shader</name></member>
+    <member refid="classDrawable_1ac2a22ca4c60f3725209dfe5da30b91e6" kind="variable"><name>drawerFunction</name></member>
+    <member refid="classDrawable_1a40520e875b6b2caa68aa234217da8ef1" kind="function"><name>drawSelf</name></member>
+  </compound>
+  <compound refid="classEmptyRectangle" kind="class"><name>EmptyRectangle</name>
+    <member refid="classEmptyRectangle_1a06ab9dbea6532464db65bd6812ceeec6" kind="variable"><name>_sides</name></member>
+    <member refid="classEmptyRectangle_1abec7853e545d8bd2de5223467b637ad8" kind="variable"><name>_points</name></member>
+    <member refid="classEmptyRectangle_1aa7f43337c495035304c2e2e5a2da2ef0" kind="variable"><name>_thickness</name></member>
+    <member refid="classEmptyRectangle_1ae0dea2b13d4c6ddf0f20d2ae508820b6" kind="variable"><name>_width</name></member>
+    <member refid="classEmptyRectangle_1a08f9f398a0973b36551d3a6a48cfcd63" kind="variable"><name>_height</name></member>
+    <member refid="classEmptyRectangle_1a6f0aded2866e07ad17aa3f4fd58dc6e7" kind="function"><name>EmptyRectangle</name></member>
+    <member refid="classEmptyRectangle_1a2fe9364ae7f70af2404d350f74ce5f8a" kind="function"><name>EmptyRectangle</name></member>
+    <member refid="classEmptyRectangle_1af1386bf5f9e1853911e40e8a30aedc88" kind="function"><name>generateVertices</name></member>
+  </compound>
+  <compound refid="classGeometryRenderer" kind="class"><name>GeometryRenderer</name>
+    <member refid="classGeometryRenderer_1ad75105392b1578bd20fe3d65dd296599" kind="variable"><name>elements</name></member>
+    <member refid="classGeometryRenderer_1afcd3f06bbcc4349e5c17040c21286772" kind="variable"><name>arrays</name></member>
+    <member refid="classGeometryRenderer_1a527af018c442b956a80c59726130aa1b" kind="function"><name>addShapeToBuffer</name></member>
+    <member refid="classGeometryRenderer_1abc7985b5bd113b1c7856ba41ec04f51e" kind="function"><name>renderAll</name></member>
+  </compound>
+  <compound refid="classKronUIWindow" kind="class"><name>KronUIWindow</name>
+    <member refid="classKronUIWindow_1a174a23fe511587ce5bced0951125cfe3" kind="variable"><name>_name</name></member>
+    <member refid="classKronUIWindow_1a08b0fe0613699ffafa5f9c0597a1558a" kind="variable"><name>_self</name></member>
+    <member refid="classKronUIWindow_1a80a57875d765cfebcbd37b43596bf2ab" kind="variable"><name>VAO</name></member>
+    <member refid="classKronUIWindow_1ae9361e2b65da641c7bb38eee36a6e2f6" kind="variable"><name>VBO</name></member>
+    <member refid="classKronUIWindow_1a8d663a36e40905c9ef89f95c8339ff93" kind="variable"><name>_width</name></member>
+    <member refid="classKronUIWindow_1afa73da45f9b7284c881af0dd71a6667c" kind="variable"><name>_height</name></member>
+    <member refid="classKronUIWindow_1acecb005664c26c2e79eecd11bc049db5" kind="function"><name>KronUIWindow</name></member>
+    <member refid="classKronUIWindow_1aebe95a20c494eae6f513822d05043422" kind="function"><name>getName</name></member>
+    <member refid="classKronUIWindow_1a9a290a36d6132d865a7de67eb856f7d8" kind="function"><name>getSelf</name></member>
+  </compound>
+  <compound refid="classKronUIWindowManager" kind="class"><name>KronUIWindowManager</name>
+    <member refid="classKronUIWindowManager_1a193605345ae6c92e31bc7780e160f402" kind="variable"><name>_window</name></member>
+    <member refid="classKronUIWindowManager_1acd09e751baa7298405144d4c6383d90d" kind="function"><name>getWindow</name></member>
+    <member refid="classKronUIWindowManager_1a73511465c8ae2dec27377c70bb17dd17" kind="function"><name>setWindow</name></member>
+  </compound>
+  <compound refid="classLine" kind="class"><name>Line</name>
+    <member refid="classLine_1a5b99891786413b86c86065d7e3cd7d6a" kind="variable"><name>_begin</name></member>
+    <member refid="classLine_1a2a9f014fadd09f2a89c54507cb6cc0da" kind="variable"><name>_end</name></member>
+    <member refid="classLine_1a9a6d288919fed15ad17be5bca592965f" kind="variable"><name>_thickness</name></member>
+    <member refid="classLine_1a87e8ec896581b0e6b8c80d8dc4050da9" kind="function"><name>Line</name></member>
+    <member refid="classLine_1a5841e69c7633a8b94f155761c30c8657" kind="function"><name>generateVertices</name></member>
+  </compound>
+  <compound refid="classPoint" kind="class"><name>Point</name>
+    <member refid="classPoint_1a0e3587d7be70a5e56e886b93a0db5156" kind="variable"><name>_position</name></member>
+    <member refid="classPoint_1ac9682b9cd45f4790d0d27dd5ad6bd256" kind="function"><name>Point</name></member>
+    <member refid="classPoint_1ad92f2337b839a94ce97dcdb439b4325a" kind="function"><name>Point</name></member>
+    <member refid="classPoint_1af0c0f20db1616447bc78184ed537ef6e" kind="function"><name>Point</name></member>
+    <member refid="classPoint_1a63977324f06d762ce224554ae693e6c7" kind="function"><name>generateVertices</name></member>
+    <member refid="classPoint_1a0f5fd4682dd29392e395d5483bad40b1" kind="function"><name>getVector</name></member>
+  </compound>
+  <compound refid="classRectangle" kind="class"><name>Rectangle</name>
+    <member refid="classRectangle_1a5c31d7de06bee34915525dcc0a7497a1" kind="variable"><name>_triangles</name></member>
+    <member refid="classRectangle_1a7545c7d77a46c406c46e451a4bb06d4b" kind="variable"><name>_points</name></member>
+    <member refid="classRectangle_1a5d99d3e2887f008e48cf3f00ba0d1a7f" kind="function"><name>Rectangle</name></member>
+    <member refid="classRectangle_1a8a933e0ebd9e80ce91e61ffe87fd577e" kind="function"><name>Rectangle</name></member>
+    <member refid="classRectangle_1a96af63ff9bab4e9ad1974568c30c9a3e" kind="function"><name>Rectangle</name></member>
+    <member refid="classRectangle_1a04bc59d135e90047dbb780fb52788e02" kind="function"><name>generateVertices</name></member>
+  </compound>
+  <compound refid="classReflectiveItem" kind="class"><name>ReflectiveItem</name>
+    <member refid="classReflectiveItem_1aed117b0e2e9a414575871627e8622cfa" kind="variable"><name>_name</name></member>
+    <member refid="classReflectiveItem_1af93522901a0e167eb130053642261b04" kind="variable"><name>address</name></member>
+    <member refid="classReflectiveItem_1adabfa391ef38161de2e243bd387b8e6a" kind="function"><name>ReflectiveItem</name></member>
+    <member refid="classReflectiveItem_1a1ed203f9b24870e37f02adb3c57c8f5c" kind="function"><name>getName</name></member>
+    <member refid="classReflectiveItem_1ac9c9a3038c9c4e57568418c4f43931f7" kind="function"><name>getAddress</name></member>
+  </compound>
+  <compound refid="classRotationPaintShader" kind="class"><name>RotationPaintShader</name>
+    <member refid="classRotationPaintShader_1a73101b573c24a5f78b06bc91926701ae" kind="variable"><name>transformation_var</name></member>
+    <member refid="classRotationPaintShader_1ad5431147d487dadb26cdd00650bd24cd" kind="variable"><name>paint_var</name></member>
+    <member refid="classRotationPaintShader_1ab03a87e8b86c66ac16819cdc0cb98faa" kind="variable"><name>PlacementMatrix</name></member>
+    <member refid="classRotationPaintShader_1a4334c83e6fa533011b8466d7b7af2567" kind="variable"><name>Color</name></member>
+    <member refid="classRotationPaintShader_1ab697304665b2b0cfbcf32070c930f385" kind="function"><name>RotationPaintShader</name></member>
+    <member refid="classRotationPaintShader_1ae87bdf843d053cdb5f86d5b33142a09f" kind="function"><name>SetPlacementMatrix</name></member>
+    <member refid="classRotationPaintShader_1a00674a2c1eb135065ea45268e977be0f" kind="function"><name>setPaint</name></member>
+    <member refid="classRotationPaintShader_1a6187e928d70ff073ba3b94b711cff5db" kind="function"><name>UseShader</name></member>
+  </compound>
+  <compound refid="classShader" kind="class"><name>Shader</name>
+    <member refid="classShader_1a142a08b6fbdfc982d82ca10ee0b0f38d" kind="variable"><name>ID</name></member>
+    <member refid="classShader_1a9f478f324f99862de127125a24443725" kind="function"><name>Shader</name></member>
+    <member refid="classShader_1a59f5ac19fb359a2fff451c42783d2d5d" kind="function"><name>Shader</name></member>
+    <member refid="classShader_1a870fa9f13d69e558815d6fd351a469dc" kind="function"><name>use</name></member>
+    <member refid="classShader_1ab1a56d6c299bd7eaa18c2e142ef7bd9f" kind="function"><name>setBool</name></member>
+    <member refid="classShader_1ad362e2b654cd95a3574cd505411e41fd" kind="function"><name>setInt</name></member>
+    <member refid="classShader_1afe7367621f74c2d26431d8ac15252bf3" kind="function"><name>setFloat</name></member>
+    <member refid="classShader_1afd4d41322a1cdd1d5155bf124d19debf" kind="function"><name>setVec2</name></member>
+    <member refid="classShader_1afb91bc9e954bf590857c96ab1331b0ec" kind="function"><name>setVec2</name></member>
+    <member refid="classShader_1aeb021061c5d451329d92257b07dbfec3" kind="function"><name>setVec3</name></member>
+    <member refid="classShader_1a90092c25b7dc23964c465b93887300f9" kind="function"><name>setVec3</name></member>
+    <member refid="classShader_1a79cbe674f6bf1a576a48045dcb924de5" kind="function"><name>setVec4</name></member>
+    <member refid="classShader_1a913e10fe2501b00746ae6901b97a1730" kind="function"><name>setVec4</name></member>
+    <member refid="classShader_1a91a6ee79b959cacd618c9e29a5bbd732" kind="function"><name>setMat2</name></member>
+    <member refid="classShader_1a3e24fcad187493dfebaa12939072e91d" kind="function"><name>setMat3</name></member>
+    <member refid="classShader_1a8e711c96f3e1722cbfb88fde9478977c" kind="function"><name>setMat4</name></member>
+    <member refid="classShader_1a22055065153d38e63a410cb7e020e905" kind="function"><name>checkCompileErrors</name></member>
+  </compound>
+  <compound refid="classshapeElement" kind="class"><name>shapeElement</name>
+    <member refid="classshapeElement_1a5bed7938c8f925300b2ca1c3e071fb4b" kind="variable"><name>vertices</name></member>
+    <member refid="classshapeElement_1ab6a75c0933f15914e0723e1f77a3e675" kind="variable"><name>verticesAmount</name></member>
+    <member refid="classshapeElement_1a7a794c9647200504b783c0f1830add18" kind="function"><name>generateVertices</name></member>
+  </compound>
+  <compound refid="classTextRenderer" kind="class"><name>TextRenderer</name>
+    <member refid="classTextRenderer_1a3b8a925d791db79b13e05fdbb6a22a63" kind="variable"><name>_shader</name></member>
+    <member refid="classTextRenderer_1a9abfaa754803ccd71bd452415cdc5565" kind="variable"><name>_window</name></member>
+    <member refid="classTextRenderer_1a71c74673b6e8cfb66a5c04383c14fd47" kind="variable"><name>_ttfManager</name></member>
+    <member refid="classTextRenderer_1a8f00a36440e35ffbe0a81eaec3319c96" kind="function"><name>TextRenderer</name></member>
+    <member refid="classTextRenderer_1a8e35cbe6e2bd1a4f7e03e585ac74d8d9" kind="function"><name>RenderText</name></member>
+  </compound>
+  <compound refid="classTriangle" kind="class"><name>Triangle</name>
+    <member refid="classTriangle_1a4df64eb9e682222f04d0fed49391d4e1" kind="variable"><name>_points</name></member>
+    <member refid="classTriangle_1a9c7726918e249569bdadf26a70d2fa71" kind="function"><name>Triangle</name></member>
+    <member refid="classTriangle_1aaefe4ed500c07918d30c6f0e286332c5" kind="function"><name>Triangle</name></member>
+    <member refid="classTriangle_1a96c1681b2b1752c7b4a75bce9c4855ab" kind="function"><name>Triangle</name></member>
+    <member refid="classTriangle_1a10ad7915f83b13cfebddea20e6336894" kind="function"><name>generateVertices</name></member>
+  </compound>
+  <compound refid="classTrueTypeManager" kind="class"><name>TrueTypeManager</name>
+    <member refid="classTrueTypeManager_1a147c153c7d34a38c20af85d9246bfc10" kind="variable"><name>Characters</name></member>
+    <member refid="classTrueTypeManager_1aeede74f34b46edc658dedd20a03c14a9" kind="function"><name>TrueTypeManager</name></member>
+  </compound>
+  <compound refid="ReflectiveItem_8hpp" kind="file"><name>ReflectiveItem.hpp</name>
+  </compound>
+  <compound refid="CMakeCCompilerId_8c" kind="file"><name>CMakeCCompilerId.c</name>
+    <member refid="CMakeCCompilerId_8c_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="CMakeCCompilerId_8c_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="CMakeCCompilerId_8c_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="CMakeCCompilerId_8c_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="CMakeCCompilerId_8c_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="CMakeCCompilerId_8c_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="CMakeCCompilerId_8c_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="CMakeCCompilerId_8c_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="CMakeCCompilerId_8c_1adaee3ee7c5a7a22451ea25e762e1d7d5" kind="define"><name>C_VERSION</name></member>
+    <member refid="CMakeCCompilerId_8c_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="CMakeCCompilerId_8c_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="CMakeCCompilerId_8c_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="CMakeCCompilerId_8c_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="CMakeCCompilerId_8c_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="CMakeCCompilerId_8c_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="CMakeCXXCompilerId_8cpp" kind="file"><name>CMakeCXXCompilerId.cpp</name>
+    <member refid="CMakeCXXCompilerId_8cpp_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a34cc889e576a1ae6c84ae9e0a851ba21" kind="define"><name>CXX_STD</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="CMakeCXXCompilerId_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="main_8cpp_8o_8d" kind="file"><name>main.cpp.o.d</name>
+  </compound>
+  <compound refid="TrueTypeManager_8cpp_8o_8d" kind="file"><name>TrueTypeManager.cpp.o.d</name>
+  </compound>
+  <compound refid="TrueTypeManager_8cpp" kind="file"><name>TrueTypeManager.cpp</name>
+  </compound>
+  <compound refid="TrueTypeManager_8hpp" kind="file"><name>TrueTypeManager.hpp</name>
+  </compound>
+  <compound refid="GeometryRenderer_8cpp_8o_8d" kind="file"><name>GeometryRenderer.cpp.o.d</name>
+  </compound>
+  <compound refid="Shapes_8cpp_8o_8d" kind="file"><name>Shapes.cpp.o.d</name>
+  </compound>
+  <compound refid="Drawing_8hpp" kind="file"><name>Drawing.hpp</name>
+    <member refid="Drawing_8hpp_1a1b332b1d1277bcf787fe5d740b7a45d7" kind="define"><name>VERTICES_SIZE</name></member>
+    <member refid="Drawing_8hpp_1ac9e546db27bb4f76f47d7e25f24abb88" kind="enum"><name>RenderMode</name></member>
+    <member refid="Drawing_8hpp_1ac9e546db27bb4f76f47d7e25f24abb88a7ca66fdfaad3eb33fc65d7490178f856" kind="enumvalue"><name>Triangles</name></member>
+    <member refid="Drawing_8hpp_1ac9e546db27bb4f76f47d7e25f24abb88aa0b0293a2db49f5f93c15a62e095c819" kind="enumvalue"><name>Lines</name></member>
+    <member refid="Drawing_8hpp_1ac9e546db27bb4f76f47d7e25f24abb88a456de28f607f812b42743dfdd8d89314" kind="enumvalue"><name>Quads</name></member>
+  </compound>
+  <compound refid="GeometryRenderer_8cpp" kind="file"><name>GeometryRenderer.cpp</name>
+    <member refid="GeometryRenderer_8cpp_1a9d879a91944ac8c169ee97e639a031f1" kind="function"><name>drawGeometry</name></member>
+  </compound>
+  <compound refid="GeometryRenderer_8hpp" kind="file"><name>GeometryRenderer.hpp</name>
+  </compound>
+  <compound refid="Shapes_8cpp" kind="file"><name>Shapes.cpp</name>
+  </compound>
+  <compound refid="Shapes_8hpp" kind="file"><name>Shapes.hpp</name>
+  </compound>
+  <compound refid="KronUIGL_8hpp" kind="file"><name>KronUIGL.hpp</name>
+  </compound>
+  <compound refid="Paints_8hpp" kind="file"><name>Paints.hpp</name>
+    <member refid="Paints_8hpp_1a7b3b25cba33b07c303f3060fe41887f6" kind="define"><name>BLACK</name></member>
+    <member refid="Paints_8hpp_1ae5f70677050eecd8909e0248e07b9e73" kind="define"><name>GRAY</name></member>
+    <member refid="Paints_8hpp_1a8d23feea868a983c8c2b661e1e16972f" kind="define"><name>RED</name></member>
+  </compound>
+  <compound refid="RotationPaintShader_8cpp_8o_8d" kind="file"><name>RotationPaintShader.cpp.o.d</name>
+  </compound>
+  <compound refid="RotationPaintShader_8cpp" kind="file"><name>RotationPaintShader.cpp</name>
+    <member refid="RotationPaintShader_8cpp_1a6afe59eab2731bbe6028a1c474e6182a" kind="variable"><name>fragmentCode</name></member>
+    <member refid="RotationPaintShader_8cpp_1a97d354d2d18abdb3ffafeca95405cba7" kind="variable"><name>vertexCode</name></member>
+  </compound>
+  <compound refid="RotationPaintShader_8hpp" kind="file"><name>RotationPaintShader.hpp</name>
+  </compound>
+  <compound refid="Shader_8hpp" kind="file"><name>Shader.hpp</name>
+  </compound>
+  <compound refid="TextRenderer_8cpp_8o_8d" kind="file"><name>TextRenderer.cpp.o.d</name>
+  </compound>
+  <compound refid="TextRenderer_8cpp" kind="file"><name>TextRenderer.cpp</name>
+  </compound>
+  <compound refid="TextRenderer_8hpp" kind="file"><name>TextRenderer.hpp</name>
+  </compound>
+  <compound refid="KronUIWindow_8cpp_8o_8d" kind="file"><name>KronUIWindow.cpp.o.d</name>
+  </compound>
+  <compound refid="KronUIWindow_8cpp" kind="file"><name>KronUIWindow.cpp</name>
+    <member refid="KronUIWindow_8cpp_1a5180f7bf2b71421af837035824a8c8ac" kind="function"><name>framebuffer_size_callback</name></member>
+  </compound>
+  <compound refid="KronUIWindow_8hpp" kind="file"><name>KronUIWindow.hpp</name>
+    <member refid="KronUIWindow_8hpp_1a5180f7bf2b71421af837035824a8c8ac" kind="function"><name>framebuffer_size_callback</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a76259e93488aa188c59d8b8a80517f74" kind="function"><name>MessageCallback</name></member>
+    <member refid="main_8cpp_1a2d03c6f2666863543429a06ef642fe6a" kind="function"><name>processInput</name></member>
+    <member refid="main_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_cec8e168f1e0bdf00e3d8b7b7e67c75b" kind="dir"><name>src/CMakeFiles/3.22.1</name>
+  </compound>
+  <compound refid="dir_d0c6b433adc400089eb7508a0ceaf0df" kind="dir"><name>src/Bases</name>
+  </compound>
+  <compound refid="dir_f4931641371711e74ea996fd2ac3b8b8" kind="dir"><name>src/KronUIGL/Geometry/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_52bd83ba56b6b94cb70d308787924620" kind="dir"><name>src/KronUIGL/Window/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_3373ff66d2b4e1620c365f0efa901ba8" kind="dir"><name>src/KronUIGL/Text/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_f8d6aefb304ed5b7ff6983e64cea01e5" kind="dir"><name>src/KronUIGL/Shaders/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_27db2da0464b188e42af5d28b7b57b82" kind="dir"><name>src/Freetype/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_02360bd02ac1201056da1daa384a18e9" kind="dir"><name>src/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_a29c40f963018cb07cfef91c641fb6cb" kind="dir"><name>src/CMakeFiles/3.22.1/CompilerIdC</name>
+  </compound>
+  <compound refid="dir_dab6282177c64bb6a103c53496a1f1f1" kind="dir"><name>src/CMakeFiles/3.22.1/CompilerIdCXX</name>
+  </compound>
+  <compound refid="dir_bdfcbf25f7474b9c5ba610b0e80e7852" kind="dir"><name>src/Freetype</name>
+  </compound>
+  <compound refid="dir_c350ee29a3b3383e185c0f081f00425b" kind="dir"><name>src/KronUIGL/Geometry</name>
+  </compound>
+  <compound refid="dir_53923716a0e2d51a53a8e74fb67bf4ac" kind="dir"><name>src/KronUIGL/Geometry/CMakeFiles/geometry.dir</name>
+  </compound>
+  <compound refid="dir_48051e9ae471f326e26a15a6ef56402f" kind="dir"><name>src/CMakeFiles/KronUI.dir</name>
+  </compound>
+  <compound refid="dir_08e6c0ad2fd900a2b951e7dc417bfc87" kind="dir"><name>src/KronUIGL</name>
+  </compound>
+  <compound refid="dir_c33bdd63ccc632af7019238d81e0d8e9" kind="dir"><name>src/KronUIGL/Paints</name>
+  </compound>
+  <compound refid="dir_38a02244cd8c36873565c70e3958cb2a" kind="dir"><name>src/KronUIGL/Shaders</name>
+  </compound>
+  <compound refid="dir_cbc8056f1cf60cb1b1efef2acf47bb13" kind="dir"><name>src/KronUIGL/Shaders/CMakeFiles/shaders.dir</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_640e89c8239781e7dce70dc47ee83170" kind="dir"><name>src/KronUIGL/Text</name>
+  </compound>
+  <compound refid="dir_8d0d8424bbfe659a62478cb4bc20c471" kind="dir"><name>src/KronUIGL/Text/CMakeFiles/textrenderer.dir</name>
+  </compound>
+  <compound refid="dir_5d9ad244ea21c7b8bbd403a4d41b41a9" kind="dir"><name>src/Freetype/CMakeFiles/TTM.dir</name>
+  </compound>
+  <compound refid="dir_bca6d9e9e391ded75cc9296571518978" kind="dir"><name>src/KronUIGL/Window</name>
+  </compound>
+  <compound refid="dir_d754a425bc723307fee46a9c58c65e31" kind="dir"><name>src/KronUIGL/Window/CMakeFiles/window.dir</name>
+  </compound>
+</doxygenindex>
