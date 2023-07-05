@@ -264,7 +264,7 @@ GLEW_STATIC_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLEW.a
 GLM_DIR:PATH=GLM_DIR-NOTFOUND
 
 //Dependencies for the target
-KronUIGL_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;geometry;general;paints;general;shaders;general;textrenderer;general;window;general;3D;
+KronUIGL_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;geometry;general;paints;general;shaders;general;textrenderer;general;window;general;3D;general;input;
 
 //Value Computed by CMake
 KronUI_BINARY_DIR:STATIC=/home/kanken/code/opengl-tests/KronUI/src
@@ -319,6 +319,9 @@ glfw3_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/glfw3
 
 //The directory containing a CMake configuration file for glm.
 glm_DIR:PATH=/usr/lib/cmake/glm
+
+//Dependencies for the target
+input_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;GLEW;general;glfw;general;3D;
 
 //Dependencies for the target
 paints_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;
@@ -437,7 +440,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -246,6 +246,19 @@ window/fast:
 	$(MAKE) $(MAKESILENT) -f KronUIGL/3D/CMakeFiles/3D.dir/build.make KronUIGL/3D/CMakeFiles/3D.dir/build
 .PHONY : 3D/fast
 
+#=============================================================================
+# Target rules for targets named input
+
+# Build rule for target.
+input: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 input
+.PHONY : input
+
+# fast build rule for target.
+input/fast:
+	$(MAKE) $(MAKESILENT) -f KronUIGL/Input/CMakeFiles/input.dir/build.make KronUIGL/Input/CMakeFiles/input.dir/build
+.PHONY : input/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -284,6 +297,7 @@ help:
 	@echo "... TTM"
 	@echo "... bases"
 	@echo "... geometry"
+	@echo "... input"
 	@echo "... paints"
 	@echo "... shaders"
 	@echo "... textrenderer"

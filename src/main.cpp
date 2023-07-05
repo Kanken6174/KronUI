@@ -1,68 +1,15 @@
 #include "./KronUIGL/KronUIGL.hpp"
-#include "./KronUIGL/3D/camera.hpp"
+#include "./KronUIGL/Input/Input.hpp"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <iostream>
 
-// Initialize camera
-Camera camera = Camera(800, 600, 0.1f, 100.0f); // Adjust these parameters according to your needs
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 {
   fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_OUTPUT ? "** GL ERROR **" : ""), type, severity, message);
-}
-
-void processInput(GLFWwindow* window, float deltaTime)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.translate(glm::vec4(0.0f, 0.0f, -0.1f, 1.0f));
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.translate(glm::vec4(0.0f, 0.0f, 0.1f, 1.0f));
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.translate(glm::vec4(-0.1f, 0.0f, 0.0f, 1.0f));
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.translate(glm::vec4(0.1f, 0.0f, 0.0f, 1.0f));
-
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-        camera.rotate(glm::vec4(-1.0f, 0.0f, 0.0f, 0.0f));
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-        camera.rotate(glm::vec4(1.0f, 0.0f, 0.0f, 0.0f));
-    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-        camera.rotate(glm::vec4(0.0f, -1.0f, 0.0f, 0.0f));
-    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-        camera.rotate(glm::vec4(0.0f, 1.0f, 0.0f, 0.0f));
-}
-
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
-{
-    static bool firstMouse = true;
-    static float lastX = 400, lastY = 300;  // Initial position at the center
-
-    if (firstMouse)
-    {
-        lastX = xpos;
-        lastY = ypos;
-        firstMouse = false;
-    }
-
-    float xoffset = xpos - lastX; 
-    float yoffset = ypos - lastY;
-
-    lastX = xpos;
-    lastY = ypos;
-
-    // Convert to float and scale down (these values depend on how you want to scale your camera's speed)
-    float sensitivity = 0.05f;
-    xoffset *= sensitivity;
-    yoffset *= sensitivity;
-
-    // Update camera rotation
-    camera.rotate(glm::vec3(yoffset, xoffset, 0.0f));
 }
 
 int main(){
@@ -116,8 +63,8 @@ int main(){
         er->drawSelf();
         glEnable(GL_CULL_FACE);
         dc->shader->use();
-        dc->shader->setMat4("view", camera.viewMatrix);
-        dc->shader->setMat4("projection", camera.projectionMatrix);
+        dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
+        dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         dc->drawSelf();
         tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;

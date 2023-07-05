@@ -1,4 +1,4 @@
-# Install script for directory: /home/kanken/code/opengl-tests/KronUI/src/KronUIGL
+# Install script for directory: /home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Input
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,17 +40,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Geometry/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Paints/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Text/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Window/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/cmake_install.cmake")
-  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Input/cmake_install.cmake")
-
 endif()
 

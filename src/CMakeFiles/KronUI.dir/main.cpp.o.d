@@ -392,5 +392,6 @@ CMakeFiles/KronUI.dir/main.cpp.o: \
  /usr/include/freetype2/freetype/fterrors.h \
  /usr/include/freetype2/freetype/ftmoderr.h \
  /usr/include/freetype2/freetype/fterrdef.h \
- /home/kanken/code/opengl-tests/KronUI/src/./KronUIGL/3D/camera.hpp \
- /home/kanken/code/opengl-tests/KronUI/src/./KronUIGL/3D/./entity.hpp
+ /home/kanken/code/opengl-tests/KronUI/src/./KronUIGL/Input/Input.hpp \
+ /home/kanken/code/opengl-tests/KronUI/src/./KronUIGL/Input/../3D/camera.hpp \
+ /home/kanken/code/opengl-tests/KronUI/src/./KronUIGL/Input/../3D/./entity.hpp

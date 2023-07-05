@@ -16,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "KronUIGL/3D/CMakeLists.txt"
   "KronUIGL/CMakeLists.txt"
   "KronUIGL/Geometry/CMakeLists.txt"
+  "KronUIGL/Input/CMakeLists.txt"
   "KronUIGL/Paints/CMakeLists.txt"
   "KronUIGL/Shaders/CMakeLists.txt"
   "KronUIGL/Text/CMakeLists.txt"
@@ -76,6 +77,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "KronUIGL/Text/CMakeFiles/CMakeDirectoryInformation.cmake"
   "KronUIGL/Window/CMakeFiles/CMakeDirectoryInformation.cmake"
   "KronUIGL/3D/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "KronUIGL/Input/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -90,4 +92,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "KronUIGL/Text/CMakeFiles/textrenderer.dir/DependInfo.cmake"
   "KronUIGL/Window/CMakeFiles/window.dir/DependInfo.cmake"
   "KronUIGL/3D/CMakeFiles/3D.dir/DependInfo.cmake"
+  "KronUIGL/Input/CMakeFiles/input.dir/DependInfo.cmake"
   )

@@ -468,6 +468,7 @@ CMakeFiles/KronUI.dir/main.cpp.o: main.cpp \
   /usr/include/freetype2/freetype/fterrors.h \
   /usr/include/freetype2/freetype/ftmoderr.h \
   /usr/include/freetype2/freetype/fterrdef.h \
+  KronUIGL/Input/Input.hpp \
   KronUIGL/3D/camera.hpp \
   KronUIGL/3D/entity.hpp
 
@@ -907,6 +908,8 @@ main.cpp:
 /usr/include/c++/11/type_traits:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+KronUIGL/Input/Input.hpp:
 
 /usr/include/glm/ext/vector_uint1_sized.hpp:
 

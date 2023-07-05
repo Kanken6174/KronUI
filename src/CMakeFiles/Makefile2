@@ -123,6 +123,7 @@ KronUIGL/all: KronUIGL/Shaders/all
 KronUIGL/all: KronUIGL/Text/all
 KronUIGL/all: KronUIGL/Window/all
 KronUIGL/all: KronUIGL/3D/all
+KronUIGL/all: KronUIGL/Input/all
 .PHONY : KronUIGL/all
 
 # Recursive "preinstall" directory target.
@@ -132,6 +133,7 @@ KronUIGL/preinstall: KronUIGL/Shaders/preinstall
 KronUIGL/preinstall: KronUIGL/Text/preinstall
 KronUIGL/preinstall: KronUIGL/Window/preinstall
 KronUIGL/preinstall: KronUIGL/3D/preinstall
+KronUIGL/preinstall: KronUIGL/Input/preinstall
 .PHONY : KronUIGL/preinstall
 
 # Recursive "clean" directory target.
@@ -142,6 +144,7 @@ KronUIGL/clean: KronUIGL/Shaders/clean
 KronUIGL/clean: KronUIGL/Text/clean
 KronUIGL/clean: KronUIGL/Window/clean
 KronUIGL/clean: KronUIGL/3D/clean
+KronUIGL/clean: KronUIGL/Input/clean
 .PHONY : KronUIGL/clean
 
 #=============================================================================
@@ -173,6 +176,21 @@ KronUIGL/Geometry/preinstall:
 # Recursive "clean" directory target.
 KronUIGL/Geometry/clean: KronUIGL/Geometry/CMakeFiles/geometry.dir/clean
 .PHONY : KronUIGL/Geometry/clean
+
+#=============================================================================
+# Directory level rules for directory KronUIGL/Input
+
+# Recursive "all" directory target.
+KronUIGL/Input/all: KronUIGL/Input/CMakeFiles/input.dir/all
+.PHONY : KronUIGL/Input/all
+
+# Recursive "preinstall" directory target.
+KronUIGL/Input/preinstall:
+.PHONY : KronUIGL/Input/preinstall
+
+# Recursive "clean" directory target.
+KronUIGL/Input/clean: KronUIGL/Input/CMakeFiles/input.dir/clean
+.PHONY : KronUIGL/Input/clean
 
 #=============================================================================
 # Directory level rules for directory KronUIGL/Paints
@@ -247,6 +265,7 @@ CMakeFiles/KronUI.dir/all: KronUIGL/Shaders/CMakeFiles/shaders.dir/all
 CMakeFiles/KronUI.dir/all: KronUIGL/Text/CMakeFiles/textrenderer.dir/all
 CMakeFiles/KronUI.dir/all: KronUIGL/Window/CMakeFiles/window.dir/all
 CMakeFiles/KronUI.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
+CMakeFiles/KronUI.dir/all: KronUIGL/Input/CMakeFiles/input.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KronUI.dir/build.make CMakeFiles/KronUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/KronUI.dir/build.make CMakeFiles/KronUI.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=4,5 "Built target KronUI"
@@ -254,7 +273,7 @@ CMakeFiles/KronUI.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/KronUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/KronUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 0
 .PHONY : CMakeFiles/KronUI.dir/rule
@@ -332,6 +351,7 @@ KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/Shaders/CMakeFiles/shaders.dir/al
 KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/Text/CMakeFiles/textrenderer.dir/all
 KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/Window/CMakeFiles/window.dir/all
 KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
+KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/Input/CMakeFiles/input.dir/all
 	$(MAKE) $(MAKESILENT) -f KronUIGL/CMakeFiles/KronUIGL.dir/build.make KronUIGL/CMakeFiles/KronUIGL.dir/depend
 	$(MAKE) $(MAKESILENT) -f KronUIGL/CMakeFiles/KronUIGL.dir/build.make KronUIGL/CMakeFiles/KronUIGL.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=6 "Built target KronUIGL"
@@ -339,7 +359,7 @@ KronUIGL/CMakeFiles/KronUIGL.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
 
 # Build rule for subdir invocation for target.
 KronUIGL/CMakeFiles/KronUIGL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KronUIGL/CMakeFiles/KronUIGL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 0
 .PHONY : KronUIGL/CMakeFiles/KronUIGL.dir/rule
@@ -386,7 +406,7 @@ KronUIGL/Geometry/CMakeFiles/geometry.dir/clean:
 KronUIGL/Paints/CMakeFiles/paints.dir/all:
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Paints/CMakeFiles/paints.dir/build.make KronUIGL/Paints/CMakeFiles/paints.dir/depend
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Paints/CMakeFiles/paints.dir/build.make KronUIGL/Paints/CMakeFiles/paints.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=13 "Built target paints"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=15 "Built target paints"
 .PHONY : KronUIGL/Paints/CMakeFiles/paints.dir/all
 
 # Build rule for subdir invocation for target.
@@ -414,7 +434,7 @@ KronUIGL/Shaders/CMakeFiles/shaders.dir/all: KronUIGL/Paints/CMakeFiles/paints.d
 KronUIGL/Shaders/CMakeFiles/shaders.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Shaders/CMakeFiles/shaders.dir/build.make KronUIGL/Shaders/CMakeFiles/shaders.dir/depend
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Shaders/CMakeFiles/shaders.dir/build.make KronUIGL/Shaders/CMakeFiles/shaders.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=14,15 "Built target shaders"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=16,17 "Built target shaders"
 .PHONY : KronUIGL/Shaders/CMakeFiles/shaders.dir/all
 
 # Build rule for subdir invocation for target.
@@ -445,7 +465,7 @@ KronUIGL/Text/CMakeFiles/textrenderer.dir/all: KronUIGL/Window/CMakeFiles/window
 KronUIGL/Text/CMakeFiles/textrenderer.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Text/CMakeFiles/textrenderer.dir/build.make KronUIGL/Text/CMakeFiles/textrenderer.dir/depend
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Text/CMakeFiles/textrenderer.dir/build.make KronUIGL/Text/CMakeFiles/textrenderer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=16,17 "Built target textrenderer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=18,19 "Built target textrenderer"
 .PHONY : KronUIGL/Text/CMakeFiles/textrenderer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -471,7 +491,7 @@ KronUIGL/Text/CMakeFiles/textrenderer.dir/clean:
 KronUIGL/Window/CMakeFiles/window.dir/all:
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Window/CMakeFiles/window.dir/build.make KronUIGL/Window/CMakeFiles/window.dir/depend
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Window/CMakeFiles/window.dir/build.make KronUIGL/Window/CMakeFiles/window.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=18,19 "Built target window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=20,21 "Built target window"
 .PHONY : KronUIGL/Window/CMakeFiles/window.dir/all
 
 # Build rule for subdir invocation for target.
@@ -515,6 +535,32 @@ KronUIGL/3D/CMakeFiles/3D.dir/rule: cmake_check_build_system
 KronUIGL/3D/CMakeFiles/3D.dir/clean:
 	$(MAKE) $(MAKESILENT) -f KronUIGL/3D/CMakeFiles/3D.dir/build.make KronUIGL/3D/CMakeFiles/3D.dir/clean
 .PHONY : KronUIGL/3D/CMakeFiles/3D.dir/clean
+
+#=============================================================================
+# Target rules for target KronUIGL/Input/CMakeFiles/input.dir
+
+# All Build rule for target.
+KronUIGL/Input/CMakeFiles/input.dir/all: KronUIGL/3D/CMakeFiles/3D.dir/all
+	$(MAKE) $(MAKESILENT) -f KronUIGL/Input/CMakeFiles/input.dir/build.make KronUIGL/Input/CMakeFiles/input.dir/depend
+	$(MAKE) $(MAKESILENT) -f KronUIGL/Input/CMakeFiles/input.dir/build.make KronUIGL/Input/CMakeFiles/input.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=13,14 "Built target input"
+.PHONY : KronUIGL/Input/CMakeFiles/input.dir/all
+
+# Build rule for subdir invocation for target.
+KronUIGL/Input/CMakeFiles/input.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KronUIGL/Input/CMakeFiles/input.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kanken/code/opengl-tests/KronUI/src/CMakeFiles 0
+.PHONY : KronUIGL/Input/CMakeFiles/input.dir/rule
+
+# Convenience name for target.
+input: KronUIGL/Input/CMakeFiles/input.dir/rule
+.PHONY : input
+
+# clean rule for target.
+KronUIGL/Input/CMakeFiles/input.dir/clean:
+	$(MAKE) $(MAKESILENT) -f KronUIGL/Input/CMakeFiles/input.dir/build.make KronUIGL/Input/CMakeFiles/input.dir/clean
+.PHONY : KronUIGL/Input/CMakeFiles/input.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
