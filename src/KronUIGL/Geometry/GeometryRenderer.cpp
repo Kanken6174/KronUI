@@ -4,8 +4,8 @@
 void drawGeometry(Drawable* toDraw){
     toDraw->shader->use();
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(400), 0.0f, static_cast<float>(600));
-    toDraw->shader->setMat4("projection", projection);
-    toDraw->shader->setVec3("textColor", RED);
+    //toDraw->shader->setMat4("projection", projection);
+    //toDraw->shader->setVec3("textColor", RED);
     switch(toDraw->mode){
         case RenderMode::Triangles:
                 glDisable(GL_CULL_FACE);

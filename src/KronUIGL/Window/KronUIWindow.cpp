@@ -38,11 +38,11 @@ KronUIWindow::KronUIWindow(std::string name, int width = 800, int height = 600) 
     glfwSetFramebufferSizeCallback(_self, framebuffer_size_callback);
     std::cout << "set framebuffer size callback" << std::endl;
     glViewport(0, 0, 640, 480);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    //glMatrixMode(GL_PROJECTION);
+    //glLoadIdentity();
+    //glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
+    //glMatrixMode(GL_MODELVIEW);
+    //glLoadIdentity();
     std::cout << "loaded identity" << std::endl;
     // OpenGL state
     // ------------

@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
   "CMakeLists.txt"
   "Freetype/CMakeLists.txt"
+  "KronUIGL/3D/CMakeLists.txt"
   "KronUIGL/CMakeLists.txt"
   "KronUIGL/Geometry/CMakeLists.txt"
   "KronUIGL/Paints/CMakeLists.txt"
@@ -21,6 +22,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "KronUIGL/Window/CMakeLists.txt"
   "/usr/lib/cmake/glm/glmConfig-version.cmake"
   "/usr/lib/cmake/glm/glmConfig.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfig.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpConfigVersion.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets-none.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/assimp-5.2/assimpTargets.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/draco/draco-config.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets-none.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/draco/draco-targets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake"
@@ -67,6 +75,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "KronUIGL/Shaders/CMakeFiles/CMakeDirectoryInformation.cmake"
   "KronUIGL/Text/CMakeFiles/CMakeDirectoryInformation.cmake"
   "KronUIGL/Window/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "KronUIGL/3D/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -80,4 +89,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "KronUIGL/Shaders/CMakeFiles/shaders.dir/DependInfo.cmake"
   "KronUIGL/Text/CMakeFiles/textrenderer.dir/DependInfo.cmake"
   "KronUIGL/Window/CMakeFiles/window.dir/DependInfo.cmake"
+  "KronUIGL/3D/CMakeFiles/3D.dir/DependInfo.cmake"
   )

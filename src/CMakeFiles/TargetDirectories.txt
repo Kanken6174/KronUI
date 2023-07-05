@@ -25,3 +25,6 @@
 /home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Window/CMakeFiles/window.dir
 /home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Window/CMakeFiles/edit_cache.dir
 /home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Window/CMakeFiles/rebuild_cache.dir
+/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/CMakeFiles/3D.dir
+/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/CMakeFiles/edit_cache.dir
+/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/CMakeFiles/rebuild_cache.dir

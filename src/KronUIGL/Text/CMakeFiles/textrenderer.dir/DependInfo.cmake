@@ -18,6 +18,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/kanken/code/opengl-tests/KronUI/src/Freetype/CMakeFiles/TTM.dir/DependInfo.cmake"
   "/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Paints/CMakeFiles/paints.dir/DependInfo.cmake"
   "/home/kanken/code/opengl-tests/KronUI/src/Bases/CMakeFiles/bases.dir/DependInfo.cmake"
+  "/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/CMakeFiles/3D.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

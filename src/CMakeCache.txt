@@ -14,6 +14,24 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+3DProject_BINARY_DIR:STATIC=/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D
+
+//Value Computed by CMake
+3DProject_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+3DProject_SOURCE_DIR:STATIC=/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D
+
+//Dependencies for the target
+3D_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;GLEW;general;glfw;general;assimp;
+
+//Dependencies for the target
+3d_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;glm;general;GLEW;general;glfw;general;assimp;
+
+//The directory containing a CMake configuration file for Assimp.
+Assimp_DIR:PATH=Assimp_DIR-NOTFOUND
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -246,7 +264,7 @@ GLEW_STATIC_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLEW.a
 GLM_DIR:PATH=GLM_DIR-NOTFOUND
 
 //Dependencies for the target
-KronUIGL_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;geometry;general;paints;general;shaders;general;textrenderer;general;window;
+KronUIGL_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;geometry;general;paints;general;shaders;general;textrenderer;general;window;general;3D;
 
 //Value Computed by CMake
 KronUI_BINARY_DIR:STATIC=/home/kanken/code/opengl-tests/KronUI/src
@@ -284,8 +302,14 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 //Dependencies for the target
 TTM_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;/usr/local/lib/libfreetype.so;general;GLEW;
 
+//The directory containing a CMake configuration file for assimp.
+assimp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/assimp-5.2
+
 //Dependencies for the target
 bases_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;
+
+//The directory containing a CMake configuration file for draco.
+draco_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/draco
 
 //Dependencies for the target
 geometry_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;GLEW;general;glfw;
@@ -300,7 +324,7 @@ glm_DIR:PATH=/usr/lib/cmake/glm
 paints_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;
 
 //Dependencies for the target
-shaders_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;GLEW;general;paints;general;bases;
+shaders_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;GLEW;general;paints;general;bases;general;3D;
 
 //Dependencies for the target
 textrenderer_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libGLEW.so;general;shaders;general;window;general;/usr/local/lib/libfreetype.so;general;TTM;
@@ -413,7 +437,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

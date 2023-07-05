@@ -233,6 +233,19 @@ window/fast:
 	$(MAKE) $(MAKESILENT) -f KronUIGL/Window/CMakeFiles/window.dir/build.make KronUIGL/Window/CMakeFiles/window.dir/build
 .PHONY : window/fast
 
+#=============================================================================
+# Target rules for targets named 3D
+
+# Build rule for target.
+3D: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 3D
+.PHONY : 3D
+
+# fast build rule for target.
+3D/fast:
+	$(MAKE) $(MAKESILENT) -f KronUIGL/3D/CMakeFiles/3D.dir/build.make KronUIGL/3D/CMakeFiles/3D.dir/build
+.PHONY : 3D/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -265,6 +278,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... 3D"
 	@echo "... KronUI"
 	@echo "... KronUIGL"
 	@echo "... TTM"

@@ -197,8 +197,22 @@ public:
     // ------------------------------------------------------------------------
     void setMat4(const std::string &name, const glm::mat4 &mat) const
     {
-        glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+        GLint loc = glGetUniformLocation(ID, name.c_str());
+        if (loc == -1)
+        {
+            std::cerr << "Failed to find uniform " << name << std::endl;
+        }
+        else
+        {
+            glUniformMatrix4fv(loc, 1, GL_FALSE, &mat[0][0]);
+            GLenum error = glGetError();
+            if (error != GL_NO_ERROR)
+            {
+                std::cerr << "Failed to set uniform " << name << ": OpenGL error " << error << std::endl;
+            }
+        }
     }
+
 
 private:
     // utility function for checking shader compilation/linking errors.

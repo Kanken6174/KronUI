@@ -102,7 +102,6 @@ KronUI: Freetype/libTTM.a
 KronUI: KronUIGL/libKronUIGL.a
 KronUI: /usr/local/lib/libfreetype.so
 KronUI: KronUIGL/Geometry/libgeometry.a
-KronUI: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 KronUI: KronUIGL/Text/libtextrenderer.a
 KronUI: Freetype/libTTM.a
 KronUI: /usr/local/lib/libfreetype.so
@@ -110,7 +109,9 @@ KronUI: KronUIGL/Shaders/libshaders.a
 KronUI: Bases/libbases.a
 KronUI: KronUIGL/Paints/libpaints.a
 KronUI: KronUIGL/Window/libwindow.a
+KronUI: KronUIGL/3D/lib3D.a
 KronUI: /usr/lib/x86_64-linux-gnu/libGLEW.so
+KronUI: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 KronUI: CMakeFiles/KronUI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kanken/code/opengl-tests/KronUI/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable KronUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/KronUI.dir/link.txt --verbose=$(VERBOSE)

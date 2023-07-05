@@ -49,6 +49,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/cmake_install.cmake")
   include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Text/cmake_install.cmake")
   include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Window/cmake_install.cmake")
+  include("/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/3D/cmake_install.cmake")
 
 endif()
 

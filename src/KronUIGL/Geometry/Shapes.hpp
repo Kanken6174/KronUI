@@ -59,4 +59,11 @@ public:
     EmptyRectangle(glm::vec3 origin,float width, float height, float thickness = 1.0f);
     std::vector<float> generateVertices() override;
 };
+
+
+class DefaultCube : public Drawable{
+public:
+    DefaultCube(){mode = RenderMode::Triangles;}
+    std::vector<float> generateVertices() override;
+};
 #endif

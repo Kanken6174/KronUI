@@ -467,8 +467,12 @@ CMakeFiles/KronUI.dir/main.cpp.o: main.cpp \
   /usr/include/freetype2/freetype/ftimage.h \
   /usr/include/freetype2/freetype/fterrors.h \
   /usr/include/freetype2/freetype/ftmoderr.h \
-  /usr/include/freetype2/freetype/fterrdef.h
+  /usr/include/freetype2/freetype/fterrdef.h \
+  KronUIGL/3D/camera.hpp \
+  KronUIGL/3D/entity.hpp
 
+
+KronUIGL/3D/entity.hpp:
 
 /usr/include/freetype2/freetype/ftmoderr.h:
 
@@ -657,6 +661,8 @@ Bases/ReflectiveItem.hpp:
 /usr/include/glm/ext/matrix_double4x4_precision.hpp:
 
 /usr/include/glm/detail/type_mat4x4.inl:
+
+KronUIGL/3D/camera.hpp:
 
 /usr/include/glm/ext/quaternion_float.hpp:
 
