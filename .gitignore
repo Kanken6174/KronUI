@@ -72,9 +72,9 @@
 *.bak
 
 # Ignore CMake generated files
-CMakeCache.txt
+./**/CMakeCache.txt
 CMakeFiles
-cmake_install.cmake
+./**/cmake_install.cmake
 Makefile
 *.cmake
 
