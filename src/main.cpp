@@ -31,9 +31,9 @@ int main(){
     gr->addShapeToBuffer(er);
     gr->addShapeToBuffer(dc);
 
-    Shader* rps = new Shader("","./../shaders/geom.vs", "./../shaders/geom.fs");
-    Shader* cubed = new Shader("","./../shaders/cube.vs", "./../shaders/cube.fs");
-    Shader shader = Shader("","./../shaders/text.vs", "./../shaders/text.fs");
+    Shader* rps = new Shader("","./shaders/geom.vs", "./shaders/geom.fs");
+    Shader* cubed = new Shader("","./shaders/cube.vs", "./shaders/cube.fs");
+    Shader shader = Shader("","./shaders/text.vs", "./shaders/text.fs");
     er->shader = rps;
     dc->shader = cubed;
     glm::mat4 modelMatrix = glm::mat4(1.0f);
