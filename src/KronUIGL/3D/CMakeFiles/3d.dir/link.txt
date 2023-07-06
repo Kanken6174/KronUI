@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib3d.a CMakeFiles/3d.dir/camera.cpp.o CMakeFiles/3d.dir/modelEntity.cpp.o
-/usr/bin/ranlib lib3d.a
