@@ -89,6 +89,3 @@ KronUI
 # Doxygen output
 /html/
 /latex/
-
-# Doxygen config
-/Doxyfile
