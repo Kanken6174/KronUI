@@ -1,0 +1,85 @@
+# Ignore build directory
+/build/
+
+# Ignore all files ending in .o
+*.o
+
+# Ignore all files ending in .a
+*.a
+
+# Ignore all files ending in .so
+*.so
+
+# Ignore all files ending in .lo
+*.lo
+
+# Ignore all files ending in .la
+*.la
+
+# Ignore all files ending in .loT
+*.loT
+
+# Ignore all files ending in .d
+*.d
+
+# Ignore all files ending in .pc
+*.pc
+
+# Ignore all files ending in .deps/
+*.deps/
+
+# Ignore all files ending in .libs/
+*.libs/
+
+# Ignore all Automake generated files
+/aclocal.m4
+/autom4te.cache/
+/autoscan.log
+/config.guess
+/config.h
+/config.h.in
+/config.log
+/config.status
+/config.sub
+/configure
+/configure.scan
+/depcomp
+/install-sh
+/ltmain.sh
+/missing
+/ylwrap
+
+# Ignore all Libtool generated files
+/.libs/
+/.deps/
+/*lo
+/*la
+/.dirstamp
+/.deps/
+/*log
+/*info
+/*info-[0-9]*
+/*install*
+/Makefile
+/Makefile.in
+/mkinstalldirs
+/test-driver
+
+# Ignore editor files
+*~
+*.swp
+*.swo
+*.bak
+
+# Ignore CMake generated files
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Ignore Visual Studio Code workspace files
+.vscode/
+
+# Ignore CLion workspace files
+.idea/
