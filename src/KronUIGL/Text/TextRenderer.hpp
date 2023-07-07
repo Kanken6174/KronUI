@@ -8,10 +8,10 @@
 //a utility that can generate flat text on a X and Y coordinate
 class TextRenderer{
 private:
-    Shader _shader;
+    Shader* _shader;
     KronUIWindow* _window;
     TrueTypeManager* _ttfManager;
 public:
-    TextRenderer(Shader shader, KronUIWindow* window, TrueTypeManager* ttfManager);
+    TextRenderer(Shader* shader, KronUIWindow* window, TrueTypeManager* ttfManager);
     void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
 };

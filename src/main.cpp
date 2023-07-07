@@ -1,5 +1,6 @@
 #include "./KronUIGL/KronUIGL.hpp"
 #include "./KronUIGL/Input/Input.hpp"
+#include "./KronUIGL/Shaders/ShaderManager.hpp"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -26,27 +27,28 @@ int main(){
     double time = glfwGetTime();
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
-    EmptyRectangle* er = new EmptyRectangle(glm::vec3(0.5,0.5,0),0.7,0.5,0.1);
+
     DefaultCube* dc = new DefaultCube(10.0f,0.5f,10.0f);
     
     GeometryRenderer* gr = new GeometryRenderer();
-    gr->addShapeToBuffer(er);
     gr->addShapeToBuffer(dc);
 
-    Shader* rps = new Shader("","./shaders/geom.vs", "./shaders/geom.fs");
-    Shader* cubed = new Shader("","./shaders/cube.vs", "./shaders/cube.fs");
-    Shader shader = Shader("","./shaders/text.vs", "./shaders/text.fs");
+    auto sme = std::make_shared<ShaderManager>();
 
-    er->shader = rps;
-    dc->shader = cubed;
+    auto rps = std::make_shared<Shader>("./shaders/geom.vs", "./shaders/geom.fs");
+    auto cubed = std::make_shared<Shader>("./shaders/cube.vs", "./shaders/cube.fs");
+    auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
+
+    sme->addShader(rps);
+    sme->addShader(cubed);
+
+    dc->shader = cubed.get();
     glm::mat4 modelMatrix = glm::mat4(1.0f);
     dc->shader->use();
     dc->shader->setMat4("model", modelMatrix); 
-    //dc->shader->setMat4("view", camera.viewMatrix);
-    //dc->shader->setMat4("projection", camera.projectionMatrix);
-    //rps->SetPlacementMatrix(1,1,0.5,0.5,0.5);
+
     TrueTypeManager* ttm = new TrueTypeManager("./f2.ttf");
-    TextRenderer tx = TextRenderer(shader,window,ttm);
+    TextRenderer tx = TextRenderer(shader.get(),window,ttm);
     float i = 0;
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;

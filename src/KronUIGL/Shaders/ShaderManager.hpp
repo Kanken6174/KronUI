@@ -4,6 +4,8 @@
 
 #include "Shader.hpp"
 
+class Shader;
+
 /// @brief Manages shaders
 class ShaderManager {
 protected:

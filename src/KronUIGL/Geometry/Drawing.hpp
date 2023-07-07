@@ -1,7 +1,7 @@
 #ifndef guard_drawing
 #define guard_drawing
 #include <GL/glew.h>
-#include "../Shaders/RotationPaintShader.hpp"
+#include "../Shaders/Shader.hpp"
 #define VERTICES_SIZE 3
 #include <vector>
 #include <iostream>

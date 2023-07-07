@@ -1,7 +1,5 @@
 set(shaders_src
     ./Shader.hpp
-    ./RotationPaintShader.hpp
-    ./RotationPaintShader.cpp
     ./ShaderManager.cpp
     ./ShaderManager.hpp)
 

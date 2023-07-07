@@ -3,19 +3,19 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-TextRenderer::TextRenderer(Shader shader, KronUIWindow* window, TrueTypeManager* ttfManager) : _shader(shader), _window(window), _ttfManager(ttfManager){
+TextRenderer::TextRenderer(Shader* shader, KronUIWindow* window, TrueTypeManager* ttfManager) : _shader(shader), _window(window), _ttfManager(ttfManager){
     //setup the shader
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(window->_width), 0.0f, static_cast<float>(window->_height));
-    _shader.use();
-    glUniformMatrix4fv(glGetUniformLocation(_shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+    _shader->use();
+    glUniformMatrix4fv(glGetUniformLocation(_shader->ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 }
 
 
 
 void TextRenderer::RenderText(std::string text, float x, float y, float scale, glm::vec3 color){
     // activate corresponding render state
-    _shader.use();
-    glUniform3f(glGetUniformLocation(_shader.ID, "textColor"), color.x, color.y, color.z);
+    _shader->use();
+    glUniform3f(glGetUniformLocation(_shader->ID, "textColor"), color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(_window->VAO);
 

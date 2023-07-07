@@ -10,14 +10,15 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <memory>
 
-class Shader : public ReflectiveItem
+class Shader
 {
 public:
     unsigned int ID;
     // constructor generates the shader on the fly
     // ------------------------------------------------------------------------
-    Shader(std::string reflectiveName,const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr) : ReflectiveItem(reflectiveName+"Shader.")
+    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr)
     {
         // 1. retrieve the vertex/fragment source code from filePath
         std::string vertexCode;
@@ -103,38 +104,8 @@ public:
         glDeleteShader(fragment);
         if(geometryPath != nullptr)
             glDeleteShader(geometry);
+    }
 
-    }
-    //Alternate constructor (no geometry shaders or paths, code directly)
-    Shader(std::string reflectiveName,std::string vertexCode, std::string fragmentCode) : ReflectiveItem(reflectiveName+"Shader.")
-    {
-        std::cout << "shaderIn" << std::endl;
-        std::cout << vertexCode << std::endl;
-        std::cout << fragmentCode << std::endl;
-        const char* vShaderCode = vertexCode.c_str();
-        const char * fShaderCode = fragmentCode.c_str();
-        // compile shaders
-        unsigned int vertex, fragment;
-        // vertex shader
-        vertex = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertex, 1, &vShaderCode, NULL);
-        glCompileShader(vertex);
-        checkCompileErrors(vertex, "VERTEX");
-        // fragment Shader
-        fragment = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragment, 1, &fShaderCode, NULL);
-        glCompileShader(fragment);
-        checkCompileErrors(fragment, "FRAGMENT");
-        // shader Program
-        ID = glCreateProgram();
-        glAttachShader(ID, vertex);
-        glAttachShader(ID, fragment);
-        glLinkProgram(ID);
-        checkCompileErrors(ID, "PROGRAM");
-        // delete the shaders as they're linked into our program now and no longer necessery
-        glDeleteShader(vertex);
-        glDeleteShader(fragment);
-    }
     // activate the shader
     // ------------------------------------------------------------------------
     void use() 
