@@ -4,6 +4,7 @@
 #include "../Shaders/RotationPaintShader.hpp"
 #define VERTICES_SIZE 3
 #include <vector>
+#include <iostream>
 
 enum class RenderMode {Triangles, Lines, Quads};
 

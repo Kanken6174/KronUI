@@ -1,6 +1,7 @@
 #include "./Shapes.hpp"
 #include <algorithm>
 #include <iterator>
+#include <iostream>
 
 Point::Point(glm::vec3 position) : shapeElement(), _position(position){
     vertices.clear();
@@ -236,49 +237,59 @@ std::vector<float> EmptyRectangle::generateVertices(){
     return vertices;
 }
 
-std::vector<float> DefaultCube::generateVertices(){
+DefaultCube::DefaultCube(float width, float height, float thickness) 
+    : width(width), height(height), thickness(thickness) {
+    mode = RenderMode::Triangles;
+}
+
+std::vector<float> DefaultCube::generateVertices() {
+    float halfW = width / 2.0f;
+    float halfH = height / 2.0f;
+    float halfT = thickness / 2.0f;
+
     vertices = std::vector<float>({
-    -0.5f, -0.5f, -0.5f,
-    0.5f, -0.5f, -0.5f,
-    0.5f,  0.5f, -0.5f,
-    0.5f,  0.5f, -0.5f,
-    -0.5f,  0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
+        -halfW, -halfH, -halfT,
+         halfW, -halfH, -halfT,
+         halfW,  halfH, -halfT,
+         halfW,  halfH, -halfT,
+        -halfW,  halfH, -halfT,
+        -halfW, -halfH, -halfT,
 
-    -0.5f, -0.5f,  0.5f,
-    0.5f, -0.5f,  0.5f,
-    0.5f,  0.5f,  0.5f,
-    0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
-    -0.5f, -0.5f,  0.5f,
+        -halfW, -halfH,  halfT,
+         halfW, -halfH,  halfT,
+         halfW,  halfH,  halfT,
+         halfW,  halfH,  halfT,
+        -halfW,  halfH,  halfT,
+        -halfW, -halfH,  halfT,
 
-    -0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
-    -0.5f, -0.5f, -0.5f,
-    -0.5f, -0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
+        -halfW,  halfH,  halfT,
+        -halfW,  halfH, -halfT,
+        -halfW, -halfH, -halfT,
+        -halfW, -halfH, -halfT,
+        -halfW, -halfH,  halfT,
+        -halfW,  halfH,  halfT,
 
-    0.5f,  0.5f,  0.5f,
-    0.5f,  0.5f, -0.5f,
-    0.5f, -0.5f, -0.5f,
-    0.5f, -0.5f, -0.5f,
-    0.5f, -0.5f,  0.5f,
-    0.5f,  0.5f,  0.5f,
+         halfW,  halfH,  halfT,
+         halfW,  halfH, -halfT,
+         halfW, -halfH, -halfT,
+         halfW, -halfH, -halfT,
+         halfW, -halfH,  halfT,
+         halfW,  halfH,  halfT,
 
-    -0.5f, -0.5f, -0.5f,
-    0.5f, -0.5f, -0.5f,
-    0.5f, -0.5f,  0.5f,
-    0.5f, -0.5f,  0.5f,
-    -0.5f, -0.5f,  0.5f,
-    -0.5f, -0.5f, -0.5f,
+        -halfW, -halfH, -halfT,
+         halfW, -halfH, -halfT,
+         halfW, -halfH,  halfT,
+         halfW, -halfH,  halfT,
+        -halfW, -halfH,  halfT,
+        -halfW, -halfH, -halfT,
 
-    -0.5f,  0.5f, -0.5f,
-    0.5f,  0.5f, -0.5f,
-    0.5f,  0.5f,  0.5f,
-    0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f,  0.5f,
-    -0.5f,  0.5f, -0.5f
-});
+        -halfW,  halfH, -halfT,
+         halfW,  halfH, -halfT,
+         halfW,  halfH,  halfT,
+         halfW,  halfH,  halfT,
+        -halfW,  halfH,  halfT,
+        -halfW,  halfH, -halfT
+    });
+
     return vertices;
 }

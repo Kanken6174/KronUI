@@ -36,6 +36,7 @@ KronUIWindow::KronUIWindow(std::string name, int width = 800, int height = 600) 
     std::cout << "set context" << std::endl;
     glewInit();
     glfwSetFramebufferSizeCallback(_self, framebuffer_size_callback);
+    glfwSetInputMode(_self, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     std::cout << "set framebuffer size callback" << std::endl;
     glViewport(0, 0, 640, 480);
     //glMatrixMode(GL_PROJECTION);

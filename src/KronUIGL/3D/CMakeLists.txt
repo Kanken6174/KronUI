@@ -1,8 +1,6 @@
 set(CMAKE_CXX_STANDARD 17)
 
 set(3D_SRC
-    ./camera.cpp
-    ./camera.hpp
     ./entity.hpp
     ./modelEntity.cpp
     ./modelEntity.hpp)
@@ -18,6 +16,9 @@ find_package(assimp REQUIRED)
 
 add_library(3D ${3D_SRC})
 
+add_subdirectory(Vision)
+add_subdirectory(Elements)
+
 set_target_properties(3D PROPERTIES LINKER_LANGUAGE CXX)
 
 set_target_properties(3D PROPERTIES LINKER_LANGUAGE CXX)
@@ -25,3 +26,5 @@ set_target_properties(3D PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(3D GLEW)
 target_link_libraries(3D glfw)
 target_link_libraries(3D assimp)
+target_link_libraries(3D vision)
+target_link_libraries(3D elements)

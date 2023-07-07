@@ -63,7 +63,11 @@ public:
 
 class DefaultCube : public Drawable{
 public:
-    DefaultCube(){mode = RenderMode::Triangles;}
+    DefaultCube(float width, float height, float thickness);
+
     std::vector<float> generateVertices() override;
+
+private:
+    float width, height, thickness;
 };
 #endif

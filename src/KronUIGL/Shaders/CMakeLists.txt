@@ -1,7 +1,9 @@
 set(shaders_src
     ./Shader.hpp
     ./RotationPaintShader.hpp
-    ./RotationPaintShader.cpp)
+    ./RotationPaintShader.cpp
+    ./ShaderManager.cpp
+    ./ShaderManager.hpp)
 
 include_directories (/usr/include/freetype2)
 find_package(Freetype REQUIRED)

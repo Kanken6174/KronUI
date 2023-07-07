@@ -13,7 +13,7 @@ TextRenderer::TextRenderer(Shader shader, KronUIWindow* window, TrueTypeManager*
 
 
 void TextRenderer::RenderText(std::string text, float x, float y, float scale, glm::vec3 color){
-    // activate corresponding render state	
+    // activate corresponding render state
     _shader.use();
     glUniform3f(glGetUniformLocation(_shader.ID, "textColor"), color.x, color.y, color.z);
     glActiveTexture(GL_TEXTURE0);
