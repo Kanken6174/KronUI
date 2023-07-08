@@ -1,9 +1,6 @@
 set(CMAKE_CXX_STANDARD 17)
 
-set(3D_SRC
-    ./entity.hpp
-    ./modelEntity.cpp
-    ./modelEntity.hpp)
+set(3D_SRC ./3D.hpp)
 
 set(glm_DIR /usr/include/glm)
 find_package(glm REQUIRED)
@@ -18,6 +15,8 @@ add_library(3D ${3D_SRC})
 
 add_subdirectory(Vision)
 add_subdirectory(Elements)
+add_subdirectory(Loaders)
+add_subdirectory(Renderers)
 
 set_target_properties(3D PROPERTIES LINKER_LANGUAGE CXX)
 
@@ -28,3 +27,5 @@ target_link_libraries(3D glfw)
 target_link_libraries(3D assimp)
 target_link_libraries(3D vision)
 target_link_libraries(3D elements)
+target_link_libraries(3D loaders)
+target_link_libraries(3D renderers)

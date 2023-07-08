@@ -2,6 +2,8 @@
 #include "./KronUIGL/Input/Input.hpp"
 #include "./KronUIGL/Shaders/ShaderManager.hpp"
 
+#include "./KronUIGL/3D/Renderers/MeshRenderer.hpp"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -30,6 +32,11 @@ int main(){
 
     DefaultCube* dc = new DefaultCube(10.0f,0.5f,10.0f);
     
+    OBJLoader* loader = new OBJLoader();
+
+    std::vector<std::shared_ptr<Mesh>> ms = loader->loadModel("./Ressources/Models/t1.obj");
+    std::cout << "meshes loaded: " << ms.size() << std::endl;
+
     GeometryRenderer* gr = new GeometryRenderer();
     gr->addShapeToBuffer(dc);
 
@@ -39,10 +46,12 @@ int main(){
     auto cubed = std::make_shared<Shader>("./shaders/cube.vs", "./shaders/cube.fs");
     auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
 
+    MeshRenderer* mr = new MeshRenderer(cubed);
+    mr->addMesh(ms[0]);
     sme->addShader(rps);
     sme->addShader(cubed);
 
-    dc->shader = cubed.get();
+    dc->shader = cubed;
     glm::mat4 modelMatrix = glm::mat4(1.0f);
     dc->shader->use();
     dc->shader->setMat4("model", modelMatrix); 
@@ -74,6 +83,11 @@ int main(){
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         dc->drawSelf();
+
+        mr->shader->use();
+        mr->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
+        mr->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
+        mr->renderAll();
         //tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;
         glfwSwapBuffers(KronUIWindowManager::getWindow()->getSelf());

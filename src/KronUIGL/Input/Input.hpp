@@ -18,31 +18,31 @@ class InputSystem{
         {GLFW_KEY_W, [this](){
             glm::vec3 moveDirection = this->camera.getForward();
             moveDirection.y = 0; // prevent vertical movement
-            this->camera.position += glm::normalize(moveDirection) * 0.15f;
+            this->camera.transform.Position += glm::normalize(moveDirection) * 0.15f;
         }},
         {GLFW_KEY_S, [this](){
             glm::vec3 moveDirection = this->camera.getForward();
             moveDirection.y = 0; // prevent vertical movement
-            this->camera.position -= glm::normalize(moveDirection) * 0.15f;
+            this->camera.transform.Position -= glm::normalize(moveDirection) * 0.15f;
         }},
         {GLFW_KEY_A, [this](){
             glm::vec3 moveDirection = glm::normalize(glm::cross(this->camera.getForward(), glm::vec3(0.0f, 1.0f, 0.0f)));
             moveDirection.y = 0; // prevent vertical movement
-            this->camera.position -= moveDirection * 0.1f;
+            this->camera.transform.Position -= moveDirection * 0.1f;
         }},
         {GLFW_KEY_D, [this](){
             glm::vec3 moveDirection = glm::normalize(glm::cross(this->camera.getForward(), glm::vec3(0.0f, 1.0f, 0.0f)));
             moveDirection.y = 0; // prevent vertical movement
-            this->camera.position += moveDirection * 0.1f;
+            this->camera.transform.Position += moveDirection * 0.1f;
         }},
         {GLFW_KEY_UP, [this](){ this->camera.rotate(glm::vec3(-0.5f, 0.0f, 0.0f)); }},
         {GLFW_KEY_DOWN, [this](){ this->camera.rotate(glm::vec3(0.5f, 0.0f, 0.0f)); }},
         {GLFW_KEY_LEFT, [this](){ this->camera.rotate(glm::vec3(0.0f, -0.5f, 0.0f)); }},
         {GLFW_KEY_RIGHT, [this](){ this->camera.rotate(glm::vec3(0.0f, 0.5f, 0.0f)); }},
-        {GLFW_KEY_SPACE, [this](){ this->camera.position += this->camera.getUp() * 0.1f; }},
-        {GLFW_KEY_LEFT_CONTROL, [this](){ this->camera.position -= this->camera.getUp() * 0.1f; }},
+        {GLFW_KEY_SPACE, [this](){ this->camera.transform.Position += this->camera.getUp() * 0.1f; }},
+        {GLFW_KEY_LEFT_CONTROL, [this](){ this->camera.transform.Position -= this->camera.getUp() * 0.1f; }},
         {GLFW_KEY_E, [this](){ this->camera.rotate(glm::vec3(0.0f, 0.0f, -0.5f)); }},
-    {GLFW_KEY_Q, [this](){ this->camera.rotate(glm::vec3(0.0f, 0.0f, 0.5f)); }}
+        {GLFW_KEY_Q, [this](){ this->camera.rotate(glm::vec3(0.0f, 0.0f, 0.5f)); }}
         };
 
 

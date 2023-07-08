@@ -5,9 +5,11 @@
 #define VERTICES_SIZE 3
 #include <vector>
 #include <iostream>
+#include <memory>
 
 enum class RenderMode {Triangles, Lines, Quads};
 
+//Defines a primitive shape made out of computed verticies
 class shapeElement{
 protected:
     std::vector<float> vertices = std::vector<float>();
@@ -22,7 +24,7 @@ class Drawable : public shapeElement{
 public:
     RenderMode mode = RenderMode::Triangles;
     GLuint bufferID;
-    Shader* shader;
+    std::shared_ptr<Shader> shader;
     void (*drawerFunction)(Drawable*);
     void drawSelf(){
         if(drawerFunction != nullptr)

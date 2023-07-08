@@ -6,7 +6,7 @@
 #include <glm/gtx/quaternion.hpp>
 
 
-#include "../entity.hpp"
+#include "../Elements/entity.hpp"
 
 class Camera : public Entity {
 public:
@@ -19,7 +19,7 @@ public:
     void updateViewMatrix();
 
     void translate(glm::vec3 translation) {
-        position += translation;
+        transform.Position += translation;
         updateViewMatrix();
     }
 
@@ -34,7 +34,7 @@ public:
 
     
     glm::vec3 getRotation() const {
-        return rotation;
+        return transform.Rotation;
     }
 
     glm::vec3 getForward() const;

@@ -2,8 +2,12 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(local_src
     ./mesh.hpp
+    ./mesh.cpp
     ./texture.hpp
-    ./vertex.hpp)
+    ./vertex.hpp
+    ./transform.hpp
+    ./entity.hpp
+    )
 
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)
