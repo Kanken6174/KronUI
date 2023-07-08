@@ -10,7 +10,6 @@ void MeshRenderer::renderAll() {
         model = mesh->getTransformMatrix();
         shader->setMat4("model", model);
 
-        /*
         // Check the mesh's textures to enable or disable shader features.
         int useColor = 1, useTexture = 0, useBump = 0;
 
@@ -24,10 +23,26 @@ void MeshRenderer::renderAll() {
             }
         }
 
+        shader->setInt("useDefault", 0);
+        shader->setInt("useColor", 0);
+        shader->setInt("useTexture", 1);
+        shader->setInt("useBump", 0);
+
+        if (!mesh->textures.empty()) {
+            // Activate the first texture unit
+            glActiveTexture(GL_TEXTURE0);
+            // Bind the texture
+            glBindTexture(GL_TEXTURE_2D, mesh->textures[0].id);
+            // Tell the shader to use the first texture unit
+            shader->setInt("texture_diffuse1", 0);
+        }
+
+        
+        /*shader->setInt("useDefault", (useColor == 0 && useTexture == 0 && useBump == 0) ? 1 : 0);
         shader->setInt("useColor", useColor);
         shader->setInt("useTexture", useTexture);
-        shader->setInt("useBump", useBump);
-        */
+        shader->setInt("useBump", useBump);*/
+
         // Draw the mesh.
         mesh->Draw();
     }

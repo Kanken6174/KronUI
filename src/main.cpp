@@ -4,6 +4,8 @@
 
 #include "./KronUIGL/3D/Renderers/MeshRenderer.hpp"
 
+#include "../include/logger.hpp"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -14,7 +16,30 @@
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 {
-  fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_OUTPUT ? "** GL ERROR **" : ""), type, severity, message);
+    Logger::Level log_level;
+
+    switch(severity)
+    {
+        case GL_DEBUG_SEVERITY_HIGH:
+            log_level = Logger::Level::ERROR;
+            break;
+        case GL_DEBUG_SEVERITY_MEDIUM:
+            log_level = Logger::Level::WARNING;
+            break;
+        case GL_DEBUG_SEVERITY_LOW:
+            log_level = Logger::Level::INFO;
+            break;
+        case GL_DEBUG_SEVERITY_NOTIFICATION:
+        default:
+            log_level = Logger::Level::INFO;
+            break;
+    }
+
+    std::string log_message = "GL CALLBACK: ";
+    if (type == GL_DEBUG_OUTPUT) log_message += "** GL ERROR ** ";
+    log_message += "type = 0x" + std::to_string(type) + ", severity = 0x" + std::to_string(severity) + ", message = " + std::string(message);
+
+    Logger::getInstance().log(log_level, log_message);
 }
 
 int main(){
@@ -34,7 +59,7 @@ int main(){
     
     OBJLoader* loader = new OBJLoader();
 
-    std::vector<std::shared_ptr<Mesh>> ms = loader->loadModel("./Ressources/Models/t1.obj");
+    std::vector<std::shared_ptr<Mesh>> ms = loader->loadModel("./Ressources/Models/laptop/t1.obj");
     std::cout << "meshes loaded: " << ms.size() << std::endl;
 
     GeometryRenderer* gr = new GeometryRenderer();
@@ -47,7 +72,9 @@ int main(){
     auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
 
     MeshRenderer* mr = new MeshRenderer(cubed);
-    mr->addMesh(ms[0]);
+    for(auto mesh : ms){
+        mr->addMesh(mesh);
+    }
     sme->addShader(rps);
     sme->addShader(cubed);
 
@@ -82,6 +109,10 @@ int main(){
         dc->shader->use();
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
+        dc->shader->setInt("useDefault", 1);
+        dc->shader->setInt("useColor", 0);
+        dc->shader->setInt("useTexture", 0);
+        dc->shader->setInt("useBump", 0);
         dc->drawSelf();
 
         mr->shader->use();
