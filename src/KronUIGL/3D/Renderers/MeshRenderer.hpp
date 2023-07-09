@@ -11,7 +11,11 @@
 class MeshRenderer {
 private:
     std::vector<std::shared_ptr<Mesh>> meshes;
-
+    //debugging only
+    unsigned int quadVAO = 0;
+    unsigned int quadVBO;
+    void prepareQuad();
+    void drawQuad();
 public:
     std::shared_ptr<Shader> shader;
     MeshRenderer(std::shared_ptr<Shader> shader) : shader(shader) {}

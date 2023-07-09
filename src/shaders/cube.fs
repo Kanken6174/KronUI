@@ -1,21 +1,22 @@
 #version 330 core
-in vec3 Position;  // input from the vertex shader
-in vec2 TexCoords; // texture coordinates from the vertex shader
-in vec3 Normal;    // normal from the vertex shader
+in vec3 Position;  
+in vec2 TexCoords;
+in vec3 Normal;    
 
 out vec4 FragColor;
 
-// textures
-uniform sampler2D texture_diffuse1; // color texture
-uniform sampler2D texture_normal1;  // normal map
+struct Material {
+    sampler2D texture_diffuse1; 
+    sampler2D texture_bump1;  
+};
 
-// control flags (0 = disabled, 1 = enabled)
+uniform Material material;
+
 uniform int useDefault = 1;
 uniform int useColor = 0;
 uniform int useTexture = 0;
 uniform int useBump = 0;
 
-// lighting
 uniform vec3 lightPos;
 uniform vec3 viewPos;
 
@@ -36,12 +37,13 @@ void main()
 
         if(useTexture == 1)
         {
-            color *= texture(texture_diffuse1, TexCoords).rgb;
+            //color *= texture(material.texture_diffuse1, vec2(Position.x, Position.y)).rgb; //debug
+            color *= texture(material.texture_diffuse1, TexCoords).rgb;   //always black or white
         }
 
         if(useBump == 1)
         {
-            vec3 texNormal = normalize(texture(texture_normal1, TexCoords).rgb * 2.0 - 1.0); // normal from normal map
+            vec3 texNormal = normalize(texture(material.texture_bump1, TexCoords).rgb * 2.0 - 1.0); // normal from normal map
 
             // apply lighting to the bump map here as per your preferred method, e.g. Phong, Blinn-Phong, etc.
             // for simplicity, a simple diffusive lighting is used

@@ -69,8 +69,13 @@ std::shared_ptr<Mesh> OBJLoader::processMesh(aiMesh* mesh, const aiScene* scene)
     for (unsigned int i = 0; i < mesh->mNumVertices; ++i) {
         Vertex vertex;
         vertex.Position = glm::vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z);
-        if (mesh->HasTextureCoords(0))
+        if (mesh->HasTextureCoords(0)){
             vertex.TexCoords = glm::vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y);
+            Logger::getInstance().log(Logger::Level::INFO, "Mesh has texture coordinates: "+std::to_string(vertex.TexCoords.x)+", "+std::to_string(vertex.TexCoords.y));
+        } else {
+            Logger::getInstance().log(Logger::Level::WARNING, "Mesh has no texture coordinates");
+            vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+        }
         vertices.push_back(vertex);
     }
     for (unsigned int i = 0; i < mesh->mNumFaces; ++i) {

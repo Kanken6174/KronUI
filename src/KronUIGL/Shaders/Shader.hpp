@@ -47,11 +47,11 @@ public:
             vertexCode = vShaderStream.str();
             fragmentCode = fShaderStream.str();
 
-            std::cout << "vertex shader code:\n" << "-----------------------------------------------------------\n"  << vertexCode 
+            /*std::cout << "vertex shader code:\n" << "-----------------------------------------------------------\n"  << vertexCode 
             << "-----------------------------------------------------------" << std::endl;
             std::cout << "fragment shader code:\n" << "-----------------------------------------------------------\n" << fragmentCode 
             << "-----------------------------------------------------------" << std::endl;
-
+*/
             // if geometry shader path is present, also load a geometry shader
             if(geometryPath != nullptr)
             {

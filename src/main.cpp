@@ -103,9 +103,7 @@ int main(){
         glClear(GL_COLOR_BUFFER_BIT);
 
         glBindVertexArray(VertexArrayID);
-        glDisable(GL_CULL_FACE);
-        //er->drawSelf();
-        glEnable(GL_CULL_FACE);
+
         dc->shader->use();
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
