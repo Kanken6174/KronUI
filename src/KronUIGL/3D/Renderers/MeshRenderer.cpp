@@ -51,7 +51,7 @@ void MeshRenderer::renderAll() {
         unsigned int diffuseNr = 1;
         unsigned int normalNr = 1;
 
-        std::cout << "rendering model with: " << mesh->textures.size() << " textures" << std::endl;
+        //std::cout << "rendering model with: " << mesh->textures.size() << " textures" << std::endl;
 
         for (unsigned int i = 0; i < mesh->textures.size(); i++) {
             glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding

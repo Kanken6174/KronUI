@@ -37,8 +37,9 @@ void main()
 
         if(useTexture == 1)
         {
+            color = vec3(0.2); // reset color
             //color *= texture(material.texture_diffuse1, vec2(Position.x, Position.y)).rgb; //debug
-            color *= texture(material.texture_diffuse1, TexCoords).rgb;   //always black or white
+            color += texture(material.texture_diffuse1, TexCoords).rgb;   //always black or white
         }
 
         if(useBump == 1)

@@ -18,11 +18,11 @@ private:
     void drawQuad();
 public:
     std::shared_ptr<Shader> shader;
-    MeshRenderer(std::shared_ptr<Shader> shader) : shader(shader) {}
+    MeshRenderer(std::shared_ptr<Shader> _shader) : shader(_shader) {}
 
     void addMesh(std::shared_ptr<Mesh> mesh) {
         mesh->Draw = [this, mesh]() { this->drawMesh(mesh); };
-        mesh->setupMesh();
+        mesh->setupMesh(shader->ID);
         meshes.push_back(mesh);
     }
 
