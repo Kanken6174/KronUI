@@ -55,7 +55,7 @@ int main(){
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
 
-    DefaultCube* dc = new DefaultCube(10.0f,0.5f,10.0f);
+    DefaultCube* dc = new DefaultCube(10.0f,0.5f,10.0f, 0.0f, -0.5f, 0.0f);
     
     OBJLoader* loader = new OBJLoader();
 
@@ -112,7 +112,7 @@ int main(){
         dc->shader->setInt("useTexture", 0);
         dc->shader->setInt("useBump", 0);
         dc->drawSelf();
-
+        
         mr->shader->use();
         mr->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         mr->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);

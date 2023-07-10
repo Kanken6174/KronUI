@@ -63,11 +63,13 @@ public:
 
 class DefaultCube : public Drawable{
 public:
-    DefaultCube(float width, float height, float thickness);
+    DefaultCube(float width, float height, float thickness, float offsetX = 0, float offsetY = 0, float offsetZ = 0);
 
     std::vector<float> generateVertices() override;
 
 private:
     float width, height, thickness;
+    float offsetX, offsetY, offsetZ;
 };
+
 #endif

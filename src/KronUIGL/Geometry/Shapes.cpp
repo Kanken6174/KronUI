@@ -237,8 +237,8 @@ std::vector<float> EmptyRectangle::generateVertices(){
     return vertices;
 }
 
-DefaultCube::DefaultCube(float width, float height, float thickness) 
-    : width(width), height(height), thickness(thickness) {
+DefaultCube::DefaultCube(float width, float height, float thickness, float offsetX, float offsetY, float offsetZ) 
+    : width(width), height(height), thickness(thickness), offsetX(offsetX), offsetY(offsetY), offsetZ(offsetZ) {
     mode = RenderMode::Triangles;
 }
 
@@ -248,47 +248,47 @@ std::vector<float> DefaultCube::generateVertices() {
     float halfT = thickness / 2.0f;
 
     vertices = std::vector<float>({
-        -halfW, -halfH, -halfT,
-         halfW, -halfH, -halfT,
-         halfW,  halfH, -halfT,
-         halfW,  halfH, -halfT,
-        -halfW,  halfH, -halfT,
-        -halfW, -halfH, -halfT,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
 
-        -halfW, -halfH,  halfT,
-         halfW, -halfH,  halfT,
-         halfW,  halfH,  halfT,
-         halfW,  halfH,  halfT,
-        -halfW,  halfH,  halfT,
-        -halfW, -halfH,  halfT,
+        -halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
 
-        -halfW,  halfH,  halfT,
-        -halfW,  halfH, -halfT,
-        -halfW, -halfH, -halfT,
-        -halfW, -halfH, -halfT,
-        -halfW, -halfH,  halfT,
-        -halfW,  halfH,  halfT,
+        -halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
 
-         halfW,  halfH,  halfT,
-         halfW,  halfH, -halfT,
-         halfW, -halfH, -halfT,
-         halfW, -halfH, -halfT,
-         halfW, -halfH,  halfT,
-         halfW,  halfH,  halfT,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
 
-        -halfW, -halfH, -halfT,
-         halfW, -halfH, -halfT,
-         halfW, -halfH,  halfT,
-         halfW, -halfH,  halfT,
-        -halfW, -halfH,  halfT,
-        -halfW, -halfH, -halfT,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX, -halfH + offsetY, -halfT + offsetZ,
 
-        -halfW,  halfH, -halfT,
-         halfW,  halfH, -halfT,
-         halfW,  halfH,  halfT,
-         halfW,  halfH,  halfT,
-        -halfW,  halfH,  halfT,
-        -halfW,  halfH, -halfT
+        -halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY, -halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+         halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY,  halfT + offsetZ,
+        -halfW + offsetX,  halfH + offsetY, -halfT + offsetZ
     });
 
     return vertices;

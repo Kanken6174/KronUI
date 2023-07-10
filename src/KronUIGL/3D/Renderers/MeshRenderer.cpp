@@ -85,4 +85,5 @@ void MeshRenderer::drawMesh(std::shared_ptr<Mesh> mesh) {
     glBindVertexArray(mesh->VAO);
     glDrawElements(GL_TRIANGLES, mesh->indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+    glEnable(GL_CULL_FACE);
 }
