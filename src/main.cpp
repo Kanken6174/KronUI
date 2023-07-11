@@ -62,6 +62,9 @@ int main(){
     std::vector<std::shared_ptr<Mesh>> ms = loader->loadModel("./Ressources/Models/laptop/t1.obj");
     std::cout << "meshes loaded: " << ms.size() << std::endl;
 
+    std::unique_ptr<Entity> e = std::make_unique<Entity>();
+    
+
     GeometryRenderer* gr = new GeometryRenderer();
     gr->addShapeToBuffer(dc);
 

@@ -6,7 +6,9 @@ set(local_src
     ./texture.hpp
     ./vertex.hpp
     ./transform.hpp
+    ./transform.cpp
     ./entity.hpp
+    ./entity.cpp
     )
 
 find_package(GLEW REQUIRED)

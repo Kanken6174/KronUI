@@ -16,9 +16,6 @@ find_package(Freetype REQUIRED)
 include_directories(${GLEW_INCLUDE_DIRS})
 link_libraries(${GLEW_LIBRARIES})
 
-#set(glm_DIR /usr/include/glm)
-#find_package(glm REQUIRED)
-
 add_subdirectory(Bases)
 add_subdirectory(Freetype)
 add_subdirectory(KronUIGL)

@@ -6,6 +6,7 @@
 #include "transform.hpp"
 #include "texture.hpp"
 #include "mesh.hpp"
+#include <memory>
 
 /*
 * this class is used to represent an entity in 3D space
@@ -13,7 +14,7 @@
 class Entity {
 public:
     // stores the entity's XYZ rotation and translation + scale
-    Transform transform;
+    std::shared_ptr<Transform> transform = std::make_shared<QuaternionTransform>();
     
     // this is used to store the children of this entity as part of the scene graph
     std::vector<Entity> children;
@@ -23,6 +24,8 @@ public:
     std::optional<Mesh> mesh = std::nullopt;
 
     Entity() {}
-    Entity(float x, float y, float z) : transform(x,y,z) {}
-    Entity(float x, float y, float z, float rx, float ry, float rz) : transform(x,y,z,rx,ry,rz) {}
+    Entity(float x, float y, float z) {transform->setEulerAngles(glm::vec3(x,y,z));}
+    Entity(float x, float y, float z, float rx, float ry, float rz) {transform->setEulerAngles(glm::vec3(rx,ry,rz)); transform->setPosition(glm::vec3(x,y,z));}
+
+    virtual glm::mat4 getTransformMatrix() const;
 };

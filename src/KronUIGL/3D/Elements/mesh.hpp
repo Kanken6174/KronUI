@@ -6,6 +6,7 @@
 
 #include <GL/glew.h>
 #include <functional>
+#include <memory>
 
 class Mesh {
 public:
@@ -13,13 +14,13 @@ public:
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
     std::vector<Texture> textures;
-    Transform transform;
+    std::shared_ptr<Transform> transform;    //transform relative to the parent entity
 
     unsigned int VAO, VBO, EBO,TBO;
 
     GLuint shaderID;
 
-    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, Transform transform);
+    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, std::shared_ptr<Transform> transform);
     std::function<void()> Draw;
     glm::mat4 getTransformMatrix() const;
 

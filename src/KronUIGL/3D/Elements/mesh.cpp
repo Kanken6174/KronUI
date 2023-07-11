@@ -5,18 +5,18 @@
 #include <iostream>
 #include "../../../../include/logger.hpp"
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, Transform transform)
+Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, std::shared_ptr<Transform> transform)
     : vertices(std::move(vertices)), indices(std::move(indices)), textures(std::move(textures)), transform(std::move(transform))
 {
 }
 
 glm::mat4 Mesh::getTransformMatrix() const {
     glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, transform.Position);
-    model = glm::rotate(model, glm::radians(transform.Rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
-    model = glm::rotate(model, glm::radians(transform.Rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
-    model = glm::rotate(model, glm::radians(transform.Rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
-    model = glm::scale(model, transform.Scale);
+    model = glm::translate(model, transform->getPosition());
+    model = glm::rotate(model, glm::radians(transform->getEulerAngles().x), glm::vec3(1.0f, 0.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(transform->getEulerAngles().y), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(transform->getEulerAngles().z), glm::vec3(0.0f, 0.0f, 1.0f));
+    model = glm::scale(model, transform->getScale());
 
     return model;
 }

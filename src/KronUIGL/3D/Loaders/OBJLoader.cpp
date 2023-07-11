@@ -64,7 +64,7 @@ std::shared_ptr<Mesh> OBJLoader::processMesh(aiMesh* mesh, const aiScene* scene)
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
     std::vector<Texture> textures;
-    Transform transform;
+    std::shared_ptr<Transform> transformPtr = std::make_shared<QuaternionTransform>();
 
     for (unsigned int i = 0; i < mesh->mNumVertices; ++i) {
         Vertex vertex;
@@ -94,7 +94,7 @@ std::shared_ptr<Mesh> OBJLoader::processMesh(aiMesh* mesh, const aiScene* scene)
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
     }
 
-    return std::make_shared<Mesh>(vertices, indices, textures, transform);
+    return std::make_shared<Mesh>(vertices, indices, textures, transformPtr);
 }
 
 std::vector<Texture> OBJLoader::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string typeName)
