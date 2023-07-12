@@ -43,7 +43,7 @@ void MeshRenderer::renderAll() {
 
     for (const std::shared_ptr<Mesh>& mesh : meshes) {
         // set the model matrix for the current mesh.
-        model = mesh->getTransformMatrix();
+        model = mesh->transform->getTransformMatrix();
         shader->setMat4("model", model);
 
         // Check the mesh's textures to enable or disable shader features.

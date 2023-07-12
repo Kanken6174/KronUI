@@ -103,6 +103,17 @@ Rectangle::Rectangle(const Rectangle& t) : shapeElement(){
         _points[i] = t._points[i];
 }
 
+Rectangle::Rectangle(const glm::vec2& size) : shapeElement() {
+    vertices.clear();
+    verticesAmount = 2*3*VERTICES_SIZE;
+    vertices.resize(verticesAmount);
+    // assuming Point is glm::vec3, if not you might need to adjust accordingly
+    _points[0] = Point(glm::vec3(0.0f, 0.0f, 0.0f));
+    _points[1] = Point(glm::vec3(0.0f, size.y, 0.0f));
+    _points[2] = Point(glm::vec3(size.x, 0.0f, 0.0f));
+    _points[3] = Point(glm::vec3(size.x, size.y, 0.0f));
+}
+
 std::vector<float> Rectangle::generateVertices(){
     // First triangle
     Point ptArr1[3] = {Point(_points[0].getVector()), Point(_points[1].getVector()), Point(_points[2].getVector())};

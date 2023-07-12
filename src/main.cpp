@@ -3,6 +3,7 @@
 #include "./KronUIGL/Shaders/ShaderManager.hpp"
 
 #include "./KronUIGL/3D/Renderers/MeshRenderer.hpp"
+#include "./KronUIGL/3D/Surfaces/DrawSurface.hpp"
 
 #include "../include/logger.hpp"
 
@@ -43,6 +44,7 @@ void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum se
 }
 
 int main(){
+    std::srand(std::time(nullptr));
     std::cout << "begin" << std::endl;
     KronUIWindow* window = new KronUIWindow("test", 800, 600); 
     std::cout << "KronUIWindow" << std::endl;
@@ -73,6 +75,15 @@ int main(){
     auto rps = std::make_shared<Shader>("./shaders/geom.vs", "./shaders/geom.fs");
     auto cubed = std::make_shared<Shader>("./shaders/cube.vs", "./shaders/cube.fs");
     auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
+    auto surface = std::make_shared<Shader>("./shaders/surface.vs", "./shaders/surface.fs");
+
+    float angle = glm::radians(90.0f);
+    std::shared_ptr<DrawSurface> ds = std::make_shared<DrawSurface>(glm::vec2(1.0f,1.0f),DrawSurface::defaultIndicies(),
+    std::make_shared<QuaternionTransform>(glm::vec3(0.15f,0.2f,1.5f),glm::vec3(3.0f,1.8f,2.0f),glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
+
+    ds->shader = surface;
+    ds->setupSurface();
+
 
     MeshRenderer* mr = new MeshRenderer(cubed);
     for(auto mesh : ms){
@@ -110,10 +121,6 @@ int main(){
         dc->shader->use();
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
-        dc->shader->setInt("useDefault", 1);
-        dc->shader->setInt("useColor", 0);
-        dc->shader->setInt("useTexture", 0);
-        dc->shader->setInt("useBump", 0);
         dc->drawSelf();
         
         mr->shader->use();
@@ -122,6 +129,13 @@ int main(){
         mr->renderAll();
         //tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;
+        
+        ds->shader->use();
+        ds->updateSurfaceRandom();
+        ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
+        ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
+        ds->drawSurface(InputSystem::getInstance().getCamera().viewMatrix, InputSystem::getInstance().getCamera().projectionMatrix);
+
         glfwSwapBuffers(KronUIWindowManager::getWindow()->getSelf());
         glfwPollEvents();
     }

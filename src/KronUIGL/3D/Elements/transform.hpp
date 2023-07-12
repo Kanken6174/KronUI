@@ -23,6 +23,8 @@ public:
     virtual glm::vec3 getUp() const = 0;
     virtual glm::vec3 getRight() const = 0;
 
+    virtual glm::mat4 getTransformMatrix() const;   //pre-defined utility
+
     virtual ~Transform() {}
 };
 
@@ -70,4 +72,6 @@ public:
     glm::vec3 getForward() const override;
     glm::vec3 getUp() const override;
     glm::vec3 getRight() const override;
+
+    glm::mat4 getTransformMatrix() const override; 
 };

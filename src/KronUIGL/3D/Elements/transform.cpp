@@ -1,5 +1,18 @@
 #include "transform.hpp"
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/euler_angles.hpp>
+#include <glm/gtx/quaternion.hpp>
+
+glm::mat4 Transform::getTransformMatrix() const {
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, getPosition());
+    model = glm::rotate(model, glm::radians(getEulerAngles().x), glm::vec3(1.0f, 0.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(getEulerAngles().y), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(getEulerAngles().z), glm::vec3(0.0f, 0.0f, 1.0f));
+    model = glm::scale(model, getScale());
+
+    return model;
+}
 
 // EulerTransform implementation
 EulerTransform::EulerTransform() : position(0.0f), scale(1.0f), eulerAngles(0.0f) {}
@@ -120,4 +133,13 @@ glm::vec3 QuaternionTransform::getUp() const {
 
 glm::vec3 QuaternionTransform::getRight() const {
     return glm::normalize(glm::cross(getForward(), glm::vec3(0.0f, 1.0f, 0.0f)));
+}
+
+glm::mat4 QuaternionTransform::getTransformMatrix() const {
+    glm::mat4 translation = glm::translate(glm::mat4(1.0f), getPosition());
+    glm::mat4 rotation = glm::toMat4(getQuaternion());
+    glm::mat4 scale = glm::scale(glm::mat4(1.0f), getScale());
+
+    // Perform scaling, then rotation, then translation
+    return translation * rotation * scale;
 }

@@ -27,6 +27,10 @@ public:
     std::shared_ptr<Shader> shader;
     void (*drawerFunction)(Drawable*);
     void drawSelf(){
+        shader->setInt("useDefault", 1);
+        shader->setInt("useColor", 0);
+        shader->setInt("useTexture", 0);
+        shader->setInt("useBump", 0);
         if(drawerFunction != nullptr)
             drawerFunction(this);
         else

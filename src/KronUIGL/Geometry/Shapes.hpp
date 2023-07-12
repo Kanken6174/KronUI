@@ -41,6 +41,7 @@ private:
 public:
     //order of the points should be bottom left, top left, bottom right, top right [4]
     Rectangle(Point points[4]);
+    Rectangle(const glm::vec2& size);
     Rectangle();
     Rectangle(const Rectangle& t);
     std::vector<float> generateVertices() override;
