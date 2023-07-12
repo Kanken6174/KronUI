@@ -20,12 +20,12 @@ public:
     virtual std::vector<float> generateVertices()=0;
 };
 
-class Drawable : public shapeElement{
+class DrawableElement : public shapeElement{
 public:
     RenderMode mode = RenderMode::Triangles;
     GLuint bufferID;
     std::shared_ptr<Shader> shader;
-    void (*drawerFunction)(Drawable*);
+    void (*drawerFunction)(DrawableElement*);
     void drawSelf(){
         shader->setInt("useDefault", 1);
         shader->setInt("useColor", 0);

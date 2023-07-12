@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Window/KronUIWindow.hpp" line="18" column="5" bodyfile="src/KronUIGL/Window/KronUIWindow.cpp" bodystart="16" bodyend="66"/>
+        <location file="src/KronUIGL/Window/KronUIWindow.hpp" line="18" column="5" bodyfile="src/KronUIGL/Window/KronUIWindow.cpp" bodystart="16" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classKronUIWindow_1aebe95a20c494eae6f513822d05043422" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>

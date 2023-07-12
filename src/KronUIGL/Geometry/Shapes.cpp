@@ -103,7 +103,7 @@ Rectangle::Rectangle(const Rectangle& t) : shapeElement(){
         _points[i] = t._points[i];
 }
 
-Rectangle::Rectangle(const glm::vec2& size) : shapeElement() {
+Rectangle::Rectangle(const glm::vec2& size) : shapeElement(), size(size) {
     vertices.clear();
     verticesAmount = 2*3*VERTICES_SIZE;
     vertices.resize(verticesAmount);
@@ -114,27 +114,18 @@ Rectangle::Rectangle(const glm::vec2& size) : shapeElement() {
     _points[3] = Point(glm::vec3(size.x, size.y, 0.0f));
 }
 
-std::vector<float> Rectangle::generateVertices(){
-    // First triangle
-    Point ptArr1[3] = {Point(_points[0].getVector()), Point(_points[1].getVector()), Point(_points[2].getVector())};
-    Triangle t1 = Triangle(ptArr1);
-    std::vector<float> triangleVerts1 = t1.generateVertices();
-    for(int j = 0; j < (3*VERTICES_SIZE); j++){
-        vertices[j] = triangleVerts1[j];
-    }
-
-    // Second triangle
-    Point ptArr2[3] = {Point(_points[1].getVector()), Point(_points[2].getVector()), Point(_points[3].getVector())};
-    Triangle t2 = Triangle(ptArr2);
-    std::vector<float> triangleVerts2 = t2.generateVertices();
-    for(int j = 0; j < (3*VERTICES_SIZE); j++){
-        vertices[3*VERTICES_SIZE+j] = triangleVerts2[j];
-    }
+std::vector<float> Rectangle::generateVertices() {
+    std::vector<float> vertices = {
+        -size.x / 2.0f, -size.y / 2.0f, 0.0f, // 0: Bottom-left vertex
+         size.x / 2.0f, -size.y / 2.0f, 0.0f, // 1: Bottom-right vertex
+         size.x / 2.0f,  size.y / 2.0f, 0.0f, // 2: Top-right vertex
+        -size.x / 2.0f,  size.y / 2.0f, 0.0f  // 3: Top-left vertex
+    };
 
     return vertices;
 }
 
-EmptyRectangle::EmptyRectangle(Point points[4], float thickness) : Drawable(),_thickness(thickness){
+EmptyRectangle::EmptyRectangle(Point points[4], float thickness) : DrawableElement(),_thickness(thickness){
     mode = RenderMode::Triangles;
     vertices.clear();
     verticesAmount = 4*2*3*VERTICES_SIZE;   //4 rectangles, * 2 triangles * 3 points * Verticies size
@@ -146,7 +137,7 @@ EmptyRectangle::EmptyRectangle(Point points[4], float thickness) : Drawable(),_t
     float height = std::abs(_points[1].getVector().y -_points[2].getVector().y);
 }
 
-EmptyRectangle::EmptyRectangle(glm::vec3 origin,float width, float height, float thickness) : Drawable(), _width(width), _height(height), _thickness(thickness){
+EmptyRectangle::EmptyRectangle(glm::vec3 origin,float width, float height, float thickness) : DrawableElement(), _width(width), _height(height), _thickness(thickness){
     mode = RenderMode::Triangles;
 
     vertices.clear();

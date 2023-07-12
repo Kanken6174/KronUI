@@ -4,9 +4,9 @@
     <compoundname>TextRenderer</compoundname>
     <includes refid="TextRenderer_8hpp" local="no">TextRenderer.hpp</includes>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="classTextRenderer_1a3b8a925d791db79b13e05fdbb6a22a63" prot="private" static="no" mutable="no">
-        <type><ref refid="classShader" kindref="compound">Shader</ref></type>
-        <definition>Shader TextRenderer::_shader</definition>
+      <memberdef kind="variable" id="classTextRenderer_1ac20c3356fd473861a650d49cd2bd4574" prot="private" static="no" mutable="no">
+        <type><ref refid="classShader" kindref="compound">Shader</ref> *</type>
+        <definition>Shader* TextRenderer::_shader</definition>
         <argsstring></argsstring>
         <name>_shader</name>
         <briefdescription>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="10" column="12" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="10" bodyend="-1"/>
+        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="11" column="12" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classTextRenderer_1a9abfaa754803ccd71bd452415cdc5565" prot="private" static="no" mutable="no">
         <type><ref refid="classKronUIWindow" kindref="compound">KronUIWindow</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="11" column="18" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="11" bodyend="-1"/>
+        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="12" column="18" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classTextRenderer_1a71c74673b6e8cfb66a5c04383c14fd47" prot="private" static="no" mutable="no">
         <type><ref refid="classTrueTypeManager" kindref="compound">TrueTypeManager</ref> *</type>
@@ -41,17 +41,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="12" column="21" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="12" bodyend="-1"/>
+        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="13" column="21" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="13" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classTextRenderer_1a8f00a36440e35ffbe0a81eaec3319c96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classTextRenderer_1a64bd4daffc6b494497d2712bf4c2afca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>TextRenderer::TextRenderer</definition>
-        <argsstring>(Shader shader, KronUIWindow *window, TrueTypeManager *ttfManager)</argsstring>
+        <argsstring>(Shader *shader, KronUIWindow *window, TrueTypeManager *ttfManager)</argsstring>
         <name>TextRenderer</name>
         <param>
-          <type><ref refid="classShader" kindref="compound">Shader</ref></type>
+          <type><ref refid="classShader" kindref="compound">Shader</ref> *</type>
           <declname>shader</declname>
         </param>
         <param>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="14" column="5" bodyfile="src/KronUIGL/Text/TextRenderer.cpp" bodystart="6" bodyend="11"/>
+        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="15" column="5" bodyfile="src/KronUIGL/Text/TextRenderer.cpp" bodystart="6" bodyend="11"/>
       </memberdef>
       <memberdef kind="function" id="classTextRenderer_1a8e35cbe6e2bd1a4f7e03e585ac74d8d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -101,20 +101,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="15" column="10" bodyfile="src/KronUIGL/Text/TextRenderer.cpp" bodystart="15" bodyend="59"/>
+        <location file="src/KronUIGL/Text/TextRenderer.hpp" line="16" column="10" bodyfile="src/KronUIGL/Text/TextRenderer.cpp" bodystart="15" bodyend="59"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/KronUIGL/Text/TextRenderer.hpp" line="8" column="1" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="8" bodyend="16"/>
+    <location file="src/KronUIGL/Text/TextRenderer.hpp" line="9" column="1" bodyfile="src/KronUIGL/Text/TextRenderer.hpp" bodystart="9" bodyend="17"/>
     <listofallmembers>
-      <member refid="classTextRenderer_1a3b8a925d791db79b13e05fdbb6a22a63" prot="private" virt="non-virtual"><scope>TextRenderer</scope><name>_shader</name></member>
+      <member refid="classTextRenderer_1ac20c3356fd473861a650d49cd2bd4574" prot="private" virt="non-virtual"><scope>TextRenderer</scope><name>_shader</name></member>
       <member refid="classTextRenderer_1a71c74673b6e8cfb66a5c04383c14fd47" prot="private" virt="non-virtual"><scope>TextRenderer</scope><name>_ttfManager</name></member>
       <member refid="classTextRenderer_1a9abfaa754803ccd71bd452415cdc5565" prot="private" virt="non-virtual"><scope>TextRenderer</scope><name>_window</name></member>
       <member refid="classTextRenderer_1a8e35cbe6e2bd1a4f7e03e585ac74d8d9" prot="public" virt="non-virtual"><scope>TextRenderer</scope><name>RenderText</name></member>
-      <member refid="classTextRenderer_1a8f00a36440e35ffbe0a81eaec3319c96" prot="public" virt="non-virtual"><scope>TextRenderer</scope><name>TextRenderer</name></member>
+      <member refid="classTextRenderer_1a64bd4daffc6b494497d2712bf4c2afca" prot="public" virt="non-virtual"><scope>TextRenderer</scope><name>TextRenderer</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

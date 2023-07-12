@@ -4,6 +4,9 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/extensions/Xinerama.h>
 
 DrawSurface::DrawSurface(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::shared_ptr<Transform> transform)
     : vertices(std::move(vertices)), indices(std::move(indices)), transform(std::move(transform))
@@ -16,11 +19,15 @@ DrawSurface::DrawSurface(const glm::vec2& size, std::vector<unsigned int> indice
 {
     Rectangle rect = Rectangle(size);
     std::vector<float> vertices = rect.generateVertices();
+    //output all the vertices
+    for(int i = 0; i < vertices.size(); i++){
+        std::cout << ' ' << vertices[i] << std::endl;
+    }
     for (int i = 0; i < vertices.size(); i += 3) {
         Vertex v;
         v.Position = glm::vec3(vertices[i], vertices[i + 1], vertices[i + 2]);
         // Texture coordinates. You'll need to adjust these if your vertices aren't arranged in a simple rectangle.
-        v.TexCoords = glm::vec2(vertices[i], vertices[i + 1]);
+        v.TexCoords = glm::vec2(vertices[i], vertices[i+1]);
         v.Normal = glm::vec3(0.0f, 0.0f, 0.0f);
         this->vertices.push_back(v);
     }
@@ -62,12 +69,12 @@ void DrawSurface::setupSurface() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     
     // Generate random pixel data
-    int width = 1024;
-    int height = 1024;
+    int width = 1920;
+    int height = 1080;
     std::vector<unsigned char> pixelData(3 * width * height);
-    for (auto& pixel : pixelData) {
+    /*for (auto& pixel : pixelData) {
         pixel = std::rand() % 256; // Random value between 0 and 255
-    }
+    }*/
 
     // Allocate and populate texture memory
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixelData.data());
@@ -96,14 +103,14 @@ void DrawSurface::updateSurface(const void* pixelData, GLsizeiptr size) {
     glBindBuffer(GL_PIXEL_UNPACK_BUFFER, PBO);
     glBufferData(GL_PIXEL_UNPACK_BUFFER, size, pixelData, GL_STREAM_DRAW);
     glBindTexture(GL_TEXTURE_2D, textureId);
-    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 1024, 1024, GL_RGB, GL_UNSIGNED_BYTE, 0);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 9000, 9000, GL_RGB, GL_UNSIGNED_BYTE, 0);
     glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
 }
 
 void DrawSurface::updateSurfaceRandom() {
     // Generate new random pixel data
-    int width = 1024;
-    int height = 1024;
+    int width = 9000;
+    int height = 9000;
     std::vector<unsigned char> pixelData(3 * width * height);
     for (int i = 0; i < pixelData.size(); i += 3) {
         pixelData[i + 0] = std::rand() % 256; // Random value for red
@@ -116,6 +123,62 @@ void DrawSurface::updateSurfaceRandom() {
 
     // Update the texture with the new pixel data
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, pixelData.data());
+}
+
+void DrawSurface::updateSurfaceFromWindow() {
+    Display* display = XOpenDisplay(NULL);
+    if (!display) {
+        std::cerr << "Unable to open X display." << std::endl;
+        return;
+    }
+
+    if (!XineramaIsActive(display)) {
+        std::cerr << "Xinerama is not active." << std::endl;
+        XCloseDisplay(display);
+        return;
+    }
+
+    int numberOfScreens;
+    XineramaScreenInfo* screens = XineramaQueryScreens(display, &numberOfScreens);
+    if (numberOfScreens < 2) {
+        std::cerr << "Not enough screens." << std::endl;
+        XFree(screens);
+        XCloseDisplay(display);
+        return;
+    }
+
+    // Get the info for the second screen
+    XineramaScreenInfo screenInfo = screens[0];
+
+    // Get the root window for the entire display, then capture only the area of the second screen
+    Window window = XRootWindow(display, 0);  
+
+    int x = screenInfo.x_org;
+    int y = screenInfo.y_org;
+    int width = screenInfo.width;
+    int height = screenInfo.height;
+
+    XImage* xImage = XGetImage(display, window, x, y, width, height, AllPlanes, ZPixmap);
+
+    std::vector<unsigned char> pixelData(3 * width * height);
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            unsigned long pixel = XGetPixel(xImage, x, y);
+            unsigned char blue = pixel & xImage->blue_mask;
+            unsigned char green = (pixel & xImage->green_mask) >> 8;
+            unsigned char red = (pixel & xImage->red_mask) >> 16;
+            pixelData[3 * (y * width + x) + 0] = red;
+            pixelData[3 * (y * width + x) + 1] = green;
+            pixelData[3 * (y * width + x) + 2] = blue;
+        }
+    }
+
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, pixelData.data());
+    Logger::getInstance().warn("image updated with size: " + std::to_string(width) + "x" + std::to_string(height));
+
+    XDestroyImage(xImage);
+    XCloseDisplay(display);
 }
 
 void DrawSurface::drawSurface(glm::mat4 &view, glm::mat4 &projection) {

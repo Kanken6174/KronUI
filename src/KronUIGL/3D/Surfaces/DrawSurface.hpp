@@ -33,5 +33,6 @@ public:
     void setupSurface();
     void updateSurface(const void* pixelData, GLsizeiptr size);
     void updateSurfaceRandom();
+    void updateSurfaceFromWindow();
     void drawSurface(glm::mat4 &view, glm::mat4 &projection);
 };

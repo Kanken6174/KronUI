@@ -9,10 +9,10 @@
 
 class GeometryRenderer{
 private:
-    std::vector<Drawable*> elements;
+    std::vector<DrawableElement*> elements;
     std::map<int,float*> arrays;
 public:
-    void addShapeToBuffer(Drawable* toRender);
+    void addShapeToBuffer(DrawableElement* toRender);
     void renderAll();
 };
 

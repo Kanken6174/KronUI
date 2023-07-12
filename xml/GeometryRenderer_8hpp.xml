@@ -10,16 +10,16 @@
     <includedby refid="GeometryRenderer_8cpp" local="yes">src/KronUIGL/Geometry/GeometryRenderer.cpp</includedby>
     <includedby refid="KronUIGL_8hpp" local="yes">src/KronUIGL/KronUIGL.hpp</includedby>
     <incdepgraph>
-      <node id="9">
+      <node id="8">
         <label>string</label>
       </node>
       <node id="2">
         <label>GL/glew.h</label>
       </node>
-      <node id="18">
+      <node id="15">
         <label>map</label>
       </node>
-      <node id="17">
+      <node id="14">
         <label>GLFW/glfw3.h</label>
       </node>
       <node id="3">
@@ -30,44 +30,31 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="10">
         <label>fstream</label>
       </node>
-      <node id="7">
-        <label>./Shader.hpp</label>
+      <node id="6">
+        <label>../Shaders/Shader.hpp</label>
         <link refid="Shader_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="14">
-        <label>glm/gtc/type_ptr.hpp</label>
-      </node>
-      <node id="16">
+      <node id="13">
         <label>vector</label>
-      </node>
-      <node id="6">
-        <label>../Shaders/RotationPaintShader.hpp</label>
-        <link refid="RotationPaintShader_8hpp"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>src/KronUIGL/Geometry/GeometryRenderer.hpp</label>
@@ -76,29 +63,26 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="9">
         <label>sstream</label>
       </node>
-      <node id="8">
+      <node id="7">
         <label>../../Bases/ReflectiveItem.hpp</label>
         <link refid="ReflectiveItem_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
-      <node id="12">
+      <node id="11">
         <label>iostream</label>
-      </node>
-      <node id="13">
-        <label>glm/gtc/matrix_transform.hpp</label>
       </node>
       <node id="5">
         <label>./Drawing.hpp</label>
@@ -107,12 +91,15 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="15">
-        <label>./../Paints/Paints.hpp</label>
-        <link refid="Paints_8hpp"/>
+      <node id="12">
+        <label>memory</label>
       </node>
       <node id="4">
         <label>glm/glm.hpp</label>

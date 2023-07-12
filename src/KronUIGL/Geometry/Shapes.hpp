@@ -36,6 +36,7 @@ public:
 
 class Rectangle : public shapeElement{
 private:
+    glm::vec2 size;
     Triangle* _triangles[2]; //the 2 triangles that make a filled rectangle
     Point _points[4];
 public:
@@ -47,7 +48,7 @@ public:
     std::vector<float> generateVertices() override;
 };
 
-class EmptyRectangle : public Drawable{
+class EmptyRectangle : public DrawableElement{
 private:
     Rectangle _sides[4]; //an empty rectangle has 4 sides which are all filled rectangles of a specific width
     Point _points[4];   //points for the 4 sides
@@ -62,7 +63,7 @@ public:
 };
 
 
-class DefaultCube : public Drawable{
+class DefaultCube : public DrawableElement{
 public:
     DefaultCube(float width, float height, float thickness, float offsetX = 0, float offsetY = 0, float offsetZ = 0);
 

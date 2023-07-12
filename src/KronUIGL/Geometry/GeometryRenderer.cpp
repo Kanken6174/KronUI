@@ -3,7 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 //global invisible draw function stored in the object to draw (self call)
-void drawGeometry(Drawable* toDraw){
+void drawGeometry(DrawableElement* toDraw){
     toDraw->shader->use();
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(400), 0.0f, static_cast<float>(600));
     switch(toDraw->mode){
@@ -29,7 +29,7 @@ void drawGeometry(Drawable* toDraw){
     }
 }
 
-void GeometryRenderer::addShapeToBuffer(Drawable* toRender){
+void GeometryRenderer::addShapeToBuffer(DrawableElement* toRender){
     std::vector<float> verticies = toRender->generateVertices();
     toRender->verticesAmount = verticies.size();
     float* arr = new float[toRender->verticesAmount];

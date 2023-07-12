@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/GeometryRenderer.hpp" line="15" column="10" bodyfile="src/KronUIGL/Geometry/GeometryRenderer.cpp" bodystart="30" bodyend="47"/>
+        <location file="src/KronUIGL/Geometry/GeometryRenderer.hpp" line="15" column="10" bodyfile="src/KronUIGL/Geometry/GeometryRenderer.cpp" bodystart="32" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classGeometryRenderer_1abc7985b5bd113b1c7856ba41ec04f51e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

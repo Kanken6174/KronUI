@@ -16,7 +16,7 @@
       <node id="4">
         <label>map</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>GLFW/glfw3.h</label>
       </node>
       <node id="2">
@@ -30,22 +30,22 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="11">
         <label>fstream</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>./../../Freetype/TrueTypeManager.hpp</label>
         <link refid="TrueTypeManager_8hpp"/>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
@@ -69,8 +69,10 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="17">
+      <node id="18">
         <label>glm/gtc/type_ptr.hpp</label>
       </node>
       <node id="1">
@@ -80,15 +82,15 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
         <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="10">
         <label>sstream</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>ft2build.h</label>
       </node>
       <node id="9">
@@ -102,18 +104,21 @@
       <node id="3">
         <label>iostream</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>glm/gtc/matrix_transform.hpp</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>./../Window/KronUIWindow.hpp</label>
         <link refid="KronUIWindow_8hpp"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+      </node>
+      <node id="12">
+        <label>memory</label>
       </node>
       <node id="8">
         <label>glm/glm.hpp</label>
@@ -129,19 +134,19 @@
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;glm/gtc/matrix_transform.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;glm/gtc/type_ptr.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"><ref refid="classTextRenderer_1a8f00a36440e35ffbe0a81eaec3319c96" kindref="member">TextRenderer::TextRenderer</ref>(<ref refid="classShader" kindref="compound">Shader</ref><sp/>shader,<sp/><ref refid="classKronUIWindow" kindref="compound">KronUIWindow</ref>*<sp/>window,<sp/><ref refid="classTrueTypeManager" kindref="compound">TrueTypeManager</ref>*<sp/>ttfManager)<sp/>:<sp/>_shader(shader),<sp/>_window(window),<sp/>_ttfManager(ttfManager){</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><ref refid="classTextRenderer_1a64bd4daffc6b494497d2712bf4c2afca" kindref="member">TextRenderer::TextRenderer</ref>(<ref refid="classShader" kindref="compound">Shader</ref>*<sp/>shader,<sp/><ref refid="classKronUIWindow" kindref="compound">KronUIWindow</ref>*<sp/>window,<sp/><ref refid="classTrueTypeManager" kindref="compound">TrueTypeManager</ref>*<sp/>ttfManager)<sp/>:<sp/>_shader(shader),<sp/>_window(window),<sp/>_ttfManager(ttfManager){</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//setup<sp/>the<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>glm::mat4<sp/>projection<sp/>=<sp/>glm::ortho(0.0f,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(window-&gt;<ref refid="classKronUIWindow_1a8d663a36e40905c9ef89f95c8339ff93" kindref="member">_width</ref>),<sp/>0.0f,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(window-&gt;<ref refid="classKronUIWindow_1afa73da45f9b7284c881af0dd71a6667c" kindref="member">_height</ref>));</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>_shader.use();</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniformMatrix4fv(glGetUniformLocation(_shader.ID,<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal">),<sp/>1,<sp/>GL_FALSE,<sp/>glm::value_ptr(projection));</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>_shader-&gt;use();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniformMatrix4fv(glGetUniformLocation(_shader-&gt;ID,<sp/></highlight><highlight class="stringliteral">&quot;projection&quot;</highlight><highlight class="normal">),<sp/>1,<sp/>GL_FALSE,<sp/>glm::value_ptr(projection));</highlight></codeline>
 <codeline lineno="11"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTextRenderer_1a8e35cbe6e2bd1a4f7e03e585ac74d8d9" kindref="member">TextRenderer::RenderText</ref>(std::string<sp/>text,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scale,<sp/>glm::vec3<sp/>color){</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>activate<sp/>corresponding<sp/>render<sp/>state<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>_shader.<ref refid="classShader_1a870fa9f13d69e558815d6fd351a469dc" kindref="member">use</ref>();</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniform3f(glGetUniformLocation(_shader.<ref refid="classShader_1a142a08b6fbdfc982d82ca10ee0b0f38d" kindref="member">ID</ref>,<sp/></highlight><highlight class="stringliteral">&quot;textColor&quot;</highlight><highlight class="normal">),<sp/>color.x,<sp/>color.y,<sp/>color.z);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>activate<sp/>corresponding<sp/>render<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>_shader-&gt;<ref refid="classShader_1a870fa9f13d69e558815d6fd351a469dc" kindref="member">use</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniform3f(glGetUniformLocation(_shader-&gt;<ref refid="classShader_1a142a08b6fbdfc982d82ca10ee0b0f38d" kindref="member">ID</ref>,<sp/></highlight><highlight class="stringliteral">&quot;textColor&quot;</highlight><highlight class="normal">),<sp/>color.x,<sp/>color.y,<sp/>color.z);</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>glActiveTexture(GL_TEXTURE0);</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindVertexArray(_window-&gt;<ref refid="classKronUIWindow_1a80a57875d765cfebcbd37b43596bf2ab" kindref="member">VAO</ref>);</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>

@@ -77,9 +77,9 @@ int main(){
     auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
     auto surface = std::make_shared<Shader>("./shaders/surface.vs", "./shaders/surface.fs");
 
-    float angle = glm::radians(90.0f);
+    float angle = glm::radians(270.0f);
     std::shared_ptr<DrawSurface> ds = std::make_shared<DrawSurface>(glm::vec2(1.0f,1.0f),DrawSurface::defaultIndicies(),
-    std::make_shared<QuaternionTransform>(glm::vec3(0.15f,0.2f,1.5f),glm::vec3(3.0f,1.8f,2.0f),glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
+    std::make_shared<QuaternionTransform>(glm::vec3(0.0f,1.0f,0.0f),glm::vec3(3.0f,2.0f,1.0f),glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
 
     ds->shader = surface;
     ds->setupSurface();
@@ -131,7 +131,7 @@ int main(){
         i+= 0.001f;
         
         ds->shader->use();
-        ds->updateSurfaceRandom();
+        ds->updateSurfaceFromWindow();
         ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         ds->drawSurface(InputSystem::getInstance().getCamera().viewMatrix, InputSystem::getInstance().getCamera().projectionMatrix);

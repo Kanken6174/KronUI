@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="23" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="31" bodyend="35"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="23" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="32" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="classLine_1a5841e69c7633a8b94f155761c30c8657" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::vector&lt; float &gt;</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="24" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="37" bodyend="46"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="24" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="38" bodyend="47"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

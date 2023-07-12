@@ -2,8 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="classShader" kind="class" language="C++" prot="public">
     <compoundname>Shader</compoundname>
-    <basecompoundref refid="classReflectiveItem" prot="public" virt="non-virtual">ReflectiveItem</basecompoundref>
-    <derivedcompoundref refid="classRotationPaintShader" prot="public" virt="non-virtual">RotationPaintShader</derivedcompoundref>
     <includes refid="Shader_8hpp" local="no">Shader.hpp</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classShader_1a142a08b6fbdfc982d82ca10ee0b0f38d" prot="public" static="no" mutable="no">
@@ -17,19 +15,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="17" column="18" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="17" bodyend="-1"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="18" column="18" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classShader_1a9f478f324f99862de127125a24443725" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classShader_1aa732beb72038e86aca70a34c369a255e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>Shader::Shader</definition>
-        <argsstring>(std::string reflectiveName, const char *vertexPath, const char *fragmentPath, const char *geometryPath=nullptr)</argsstring>
+        <argsstring>(const char *vertexPath, const char *fragmentPath, const char *geometryPath=nullptr)</argsstring>
         <name>Shader</name>
-        <param>
-          <type>std::string</type>
-          <declname>reflectiveName</declname>
-        </param>
         <param>
           <type>const char *</type>
           <declname>vertexPath</declname>
@@ -49,32 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="20" column="5" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="20" bodyend="102"/>
-      </memberdef>
-      <memberdef kind="function" id="classShader_1a59f5ac19fb359a2fff451c42783d2d5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>Shader::Shader</definition>
-        <argsstring>(std::string reflectiveName, std::string vertexCode, std::string fragmentCode)</argsstring>
-        <name>Shader</name>
-        <param>
-          <type>std::string</type>
-          <declname>reflectiveName</declname>
-        </param>
-        <param>
-          <type>std::string</type>
-          <declname>vertexCode</declname>
-        </param>
-        <param>
-          <type>std::string</type>
-          <declname>fragmentCode</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="104" column="5" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="104" bodyend="132"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="21" column="5" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="21" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a870fa9f13d69e558815d6fd351a469dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -87,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="135" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="135" bodyend="138"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="111" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="111" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1ab1a56d6c299bd7eaa18c2e142ef7bd9f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -108,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="141" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="141" bodyend="144"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="117" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="117" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1ad362e2b654cd95a3574cd505411e41fd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -129,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="146" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="146" bodyend="149"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="122" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1afe7367621f74c2d26431d8ac15252bf3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -150,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="151" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="151" bodyend="154"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="127" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="127" bodyend="130"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1afd4d41322a1cdd1d5155bf124d19debf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -171,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="156" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="156" bodyend="159"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="132" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="132" bodyend="135"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1afb91bc9e954bf590857c96ab1331b0ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -196,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="160" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="160" bodyend="163"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="136" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="136" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1aeb021061c5d451329d92257b07dbfec3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -217,7 +186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="165" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="165" bodyend="168"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="141" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="141" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a90092c25b7dc23964c465b93887300f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -246,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="169" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="169" bodyend="172"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="145" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="145" bodyend="148"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a79cbe674f6bf1a576a48045dcb924de5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -267,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="174" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="174" bodyend="177"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="150" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="150" bodyend="153"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a913e10fe2501b00746ae6901b97a1730" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -300,7 +269,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="178" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="178" bodyend="181"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="154" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="154" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a91a6ee79b959cacd618c9e29a5bbd732" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -321,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="183" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="183" bodyend="186"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="159" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="159" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a3e24fcad187493dfebaa12939072e91d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -342,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="188" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="188" bodyend="191"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="164" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="164" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="classShader_1a8e711c96f3e1722cbfb88fde9478977c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -363,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="193" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="193" bodyend="196"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="169" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="169" bodyend="185"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -386,50 +355,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Shaders/Shader.hpp" line="201" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="201" bodyend="225"/>
+        <location file="src/KronUIGL/Shaders/Shader.hpp" line="191" column="10" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="191" bodyend="215"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <inheritancegraph>
-      <node id="1">
-        <label>Shader</label>
-        <link refid="classShader"/>
-        <childnode refid="2" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>RotationPaintShader</label>
-        <link refid="classRotationPaintShader"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>ReflectiveItem</label>
-        <link refid="classReflectiveItem"/>
-      </node>
-    </inheritancegraph>
-    <collaborationgraph>
-      <node id="1">
-        <label>Shader</label>
-        <link refid="classShader"/>
-        <childnode refid="2" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>ReflectiveItem</label>
-        <link refid="classReflectiveItem"/>
-      </node>
-    </collaborationgraph>
-    <location file="src/KronUIGL/Shaders/Shader.hpp" line="14" column="1" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="15" bodyend="226"/>
+    <location file="src/KronUIGL/Shaders/Shader.hpp" line="15" column="1" bodyfile="src/KronUIGL/Shaders/Shader.hpp" bodystart="16" bodyend="216"/>
     <listofallmembers>
       <member refid="classShader_1a22055065153d38e63a410cb7e020e905" prot="private" virt="non-virtual"><scope>Shader</scope><name>checkCompileErrors</name></member>
-      <member refid="classReflectiveItem_1ac9c9a3038c9c4e57568418c4f43931f7" prot="public" virt="non-virtual"><scope>Shader</scope><name>getAddress</name></member>
-      <member refid="classReflectiveItem_1a1ed203f9b24870e37f02adb3c57c8f5c" prot="public" virt="non-virtual"><scope>Shader</scope><name>getName</name></member>
       <member refid="classShader_1a142a08b6fbdfc982d82ca10ee0b0f38d" prot="public" virt="non-virtual"><scope>Shader</scope><name>ID</name></member>
-      <member refid="classReflectiveItem_1adabfa391ef38161de2e243bd387b8e6a" prot="public" virt="non-virtual"><scope>Shader</scope><name>ReflectiveItem</name></member>
       <member refid="classShader_1ab1a56d6c299bd7eaa18c2e142ef7bd9f" prot="public" virt="non-virtual"><scope>Shader</scope><name>setBool</name></member>
       <member refid="classShader_1afe7367621f74c2d26431d8ac15252bf3" prot="public" virt="non-virtual"><scope>Shader</scope><name>setFloat</name></member>
       <member refid="classShader_1ad362e2b654cd95a3574cd505411e41fd" prot="public" virt="non-virtual"><scope>Shader</scope><name>setInt</name></member>
@@ -442,8 +378,7 @@
       <member refid="classShader_1a90092c25b7dc23964c465b93887300f9" prot="public" virt="non-virtual"><scope>Shader</scope><name>setVec3</name></member>
       <member refid="classShader_1a79cbe674f6bf1a576a48045dcb924de5" prot="public" virt="non-virtual"><scope>Shader</scope><name>setVec4</name></member>
       <member refid="classShader_1a913e10fe2501b00746ae6901b97a1730" prot="public" virt="non-virtual"><scope>Shader</scope><name>setVec4</name></member>
-      <member refid="classShader_1a9f478f324f99862de127125a24443725" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
-      <member refid="classShader_1a59f5ac19fb359a2fff451c42783d2d5d" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
+      <member refid="classShader_1aa732beb72038e86aca70a34c369a255e" prot="public" virt="non-virtual"><scope>Shader</scope><name>Shader</name></member>
       <member refid="classShader_1a870fa9f13d69e558815d6fd351a469dc" prot="public" virt="non-virtual"><scope>Shader</scope><name>use</name></member>
     </listofallmembers>
   </compounddef>

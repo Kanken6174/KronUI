@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="12" column="17" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="12" bodyend="-1"/>
+        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="15" column="17" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="16" column="18" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="16" bodyend="-1"/>
+        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="19" column="18" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -56,13 +56,14 @@
         <reimplementedby refid="classTriangle_1a10ad7915f83b13cfebddea20e6336894">generateVertices</reimplementedby>
         <reimplementedby refid="classRectangle_1a04bc59d135e90047dbb780fb52788e02">generateVertices</reimplementedby>
         <reimplementedby refid="classEmptyRectangle_1af1386bf5f9e1853911e40e8a30aedc88">generateVertices</reimplementedby>
+        <reimplementedby refid="classDefaultCube_1a72b21fa2d0a30474184f296f3ee7bb1c">generateVertices</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="17" column="25"/>
+        <location file="src/KronUIGL/Geometry/Drawing.hpp" line="20" column="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -70,31 +71,37 @@
     <detaileddescription>
     </detaileddescription>
     <inheritancegraph>
-      <node id="4">
+      <node id="5">
         <label>Line</label>
         <link refid="classLine"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="7">
+      <node id="3">
+        <label>DefaultCube</label>
+        <link refid="classDefaultCube"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
         <label>Triangle</label>
         <link refid="classTriangle"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
         <label>Point</label>
         <link refid="classPoint"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>Rectangle</label>
         <link refid="classRectangle"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>EmptyRectangle</label>
         <link refid="classEmptyRectangle"/>
         <childnode refid="2" relation="public-inheritance">
@@ -111,7 +118,7 @@
         <link refid="classshapeElement"/>
       </node>
     </inheritancegraph>
-    <location file="src/KronUIGL/Geometry/Drawing.hpp" line="10" column="1" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="10" bodyend="18"/>
+    <location file="src/KronUIGL/Geometry/Drawing.hpp" line="13" column="1" bodyfile="src/KronUIGL/Geometry/Drawing.hpp" bodystart="13" bodyend="21"/>
     <listofallmembers>
       <member refid="classshapeElement_1a7a794c9647200504b783c0f1830add18" prot="public" virt="pure-virtual"><scope>shapeElement</scope><name>generateVertices</name></member>
       <member refid="classshapeElement_1a5bed7938c8f925300b2ca1c3e071fb4b" prot="protected" virt="non-virtual"><scope>shapeElement</scope><name>vertices</name></member>

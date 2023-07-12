@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="32" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="57" bodyend="62"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="32" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="58" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="classTriangle_1a96c1681b2b1752c7b4a75bce9c4855ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="33" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="64" bodyend="72"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="33" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="65" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classTriangle_1a10ad7915f83b13cfebddea20e6336894" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::vector&lt; float &gt;</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="34" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="74" bodyend="81"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="34" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="75" bodyend="82"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

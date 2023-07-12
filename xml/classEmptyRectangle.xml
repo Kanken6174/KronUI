@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="59" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="137" bodyend="151"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="59" column="5" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="138" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classEmptyRectangle_1af1386bf5f9e1853911e40e8a30aedc88" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::vector&lt; float &gt;</type>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="60" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="153" bodyend="233"/>
+        <location file="src/KronUIGL/Geometry/Shapes.hpp" line="60" column="17" bodyfile="src/KronUIGL/Geometry/Shapes.cpp" bodystart="147" bodyend="238"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -165,12 +165,6 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="4">
-        <label>Shader</label>
-        <link refid="classShader"/>
-        <childnode refid="5" relation="public-inheritance">
-        </childnode>
-      </node>
       <node id="1">
         <label>EmptyRectangle</label>
         <link refid="classEmptyRectangle"/>
@@ -182,17 +176,10 @@
         <link refid="classDrawable"/>
         <childnode refid="3" relation="public-inheritance">
         </childnode>
-        <childnode refid="4" relation="usage">
-          <edgelabel>shader</edgelabel>
-        </childnode>
       </node>
       <node id="3">
         <label>shapeElement</label>
         <link refid="classshapeElement"/>
-      </node>
-      <node id="5">
-        <label>ReflectiveItem</label>
-        <link refid="classReflectiveItem"/>
       </node>
     </collaborationgraph>
     <location file="src/KronUIGL/Geometry/Shapes.hpp" line="49" column="1" bodyfile="src/KronUIGL/Geometry/Shapes.hpp" bodystart="49" bodyend="61"/>
@@ -209,7 +196,7 @@
       <member refid="classEmptyRectangle_1a2fe9364ae7f70af2404d350f74ce5f8a" prot="public" virt="non-virtual"><scope>EmptyRectangle</scope><name>EmptyRectangle</name></member>
       <member refid="classEmptyRectangle_1af1386bf5f9e1853911e40e8a30aedc88" prot="public" virt="virtual"><scope>EmptyRectangle</scope><name>generateVertices</name></member>
       <member refid="classDrawable_1a6ef0a45864cdb86a2f7ee86df33cf1c3" prot="public" virt="non-virtual"><scope>EmptyRectangle</scope><name>mode</name></member>
-      <member refid="classDrawable_1a22cff63181e84f25e64f2c7e14779e3f" prot="public" virt="non-virtual"><scope>EmptyRectangle</scope><name>shader</name></member>
+      <member refid="classDrawable_1a5d88a6da5c2d7aa468c7b347ea2189b7" prot="public" virt="non-virtual"><scope>EmptyRectangle</scope><name>shader</name></member>
       <member refid="classshapeElement_1a5bed7938c8f925300b2ca1c3e071fb4b" prot="protected" virt="non-virtual"><scope>EmptyRectangle</scope><name>vertices</name></member>
       <member refid="classshapeElement_1ab6a75c0933f15914e0723e1f77a3e675" prot="public" virt="non-virtual"><scope>EmptyRectangle</scope><name>verticesAmount</name></member>
     </listofallmembers>

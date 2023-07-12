@@ -7,10 +7,10 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="normal">KronUIGL/Shaders/CMakeFiles/shaders.dir/<ref refid="classRotationPaintShader" kindref="compound">RotationPaintShader</ref>.cpp.o:<sp/>\</highlight></codeline>
-<codeline lineno="2"><highlight class="normal"><sp/>/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/<ref refid="classRotationPaintShader" kindref="compound">RotationPaintShader</ref>.cpp<sp/>\</highlight></codeline>
+<codeline lineno="1"><highlight class="normal">KronUIGL/Shaders/CMakeFiles/shaders.dir/RotationPaintShader.cpp.o:<sp/>\</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><sp/>/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/RotationPaintShader.cpp<sp/>\</highlight></codeline>
 <codeline lineno="3"><highlight class="normal"><sp/>/usr/include/stdc-predef.h<sp/>\</highlight></codeline>
-<codeline lineno="4"><highlight class="normal"><sp/>/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/./<ref refid="classRotationPaintShader" kindref="compound">RotationPaintShader</ref>.hpp<sp/>\</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/>/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/./RotationPaintShader.hpp<sp/>\</highlight></codeline>
 <codeline lineno="5"><highlight class="normal"><sp/>/home/kanken/code/opengl-tests/KronUI/src/KronUIGL/Shaders/././<ref refid="classShader" kindref="compound">Shader</ref>.hpp<sp/>\</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"><sp/>/usr/include/GL/glew.h<sp/>/usr/include/c++/11/cstddef<sp/>\</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/>/usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h<sp/>\</highlight></codeline>
