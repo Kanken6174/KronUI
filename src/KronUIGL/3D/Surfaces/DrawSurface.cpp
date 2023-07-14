@@ -26,10 +26,20 @@ DrawSurface::DrawSurface(const glm::vec2& size, std::vector<unsigned int> indice
     for (int i = 0; i < vertices.size(); i += 3) {
         Vertex v;
         v.Position = glm::vec3(vertices[i], vertices[i + 1], vertices[i + 2]);
-        // Texture coordinates. You'll need to adjust these if your vertices aren't arranged in a simple rectangle.
-        v.TexCoords = glm::vec2(vertices[i], vertices[i+1]);
+        //Texture coordinates. You'll need to adjust these if your vertices aren't arranged in a simple rectangle.
+        if (i == 0) // bottom-left corner
+                v.TexCoords = glm::vec2(0.0f, 1.0f);
+            else if (i == 3) // bottom-right corner
+                v.TexCoords = glm::vec2(1.0f, 1.0f);
+            else if (i == 6) // top-right corner
+                v.TexCoords = glm::vec2(1.0f, 0.0f);
+            else // top-left corner
+                v.TexCoords = glm::vec2(0.0f, 0.0f);
         v.Normal = glm::vec3(0.0f, 0.0f, 0.0f);
         this->vertices.push_back(v);
+        //log all data
+        Logger::getInstance().warn("Vertex: " + std::to_string(v.Position.x) + " " + std::to_string(v.Position.y) + " " + std::to_string(v.Position.z));
+        Logger::getInstance().warn("Texture: " + std::to_string(v.TexCoords.x) + " " + std::to_string(v.TexCoords.y));
     }
     glGenBuffers(1, &PBO);
 }
@@ -95,6 +105,10 @@ void DrawSurface::setupSurface() {
     // Vertex positions
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
     glEnableVertexAttribArray(0);
+
+    // Texture coordinates
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+    glEnableVertexAttribArray(1);
 
     glBindVertexArray(0);
 }
