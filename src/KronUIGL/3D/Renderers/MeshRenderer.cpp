@@ -1,4 +1,5 @@
 #include "MeshRenderer.hpp"
+#include "../../Shaders/ShaderManager.hpp"
 
 void MeshRenderer::prepareQuad()
 {
@@ -37,7 +38,7 @@ void MeshRenderer::drawQuad()
 }
 
 void MeshRenderer::renderAll() {
-    shader->use();
+    ShaderManager::getInstance()->setShader(shader);
 
     glm::mat4 model = glm::mat4(1.0f);
 

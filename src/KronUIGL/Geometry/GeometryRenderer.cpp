@@ -1,10 +1,11 @@
 #include "./GeometryRenderer.hpp"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "../Shaders/ShaderManager.hpp"
 
 //global invisible draw function stored in the object to draw (self call)
 void drawGeometry(DrawableElement* toDraw){
-    toDraw->shader->use();
+    ShaderManager::getInstance()->setShader(toDraw->shader);
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(400), 0.0f, static_cast<float>(600));
     switch(toDraw->mode){
         case RenderMode::Triangles:

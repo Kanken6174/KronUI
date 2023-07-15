@@ -70,8 +70,6 @@ int main(){
     GeometryRenderer* gr = new GeometryRenderer();
     gr->addShapeToBuffer(dc);
 
-    auto sme = std::make_shared<ShaderManager>();
-
     auto rps = std::make_shared<Shader>("./shaders/geom.vs", "./shaders/geom.fs");
     auto cubed = std::make_shared<Shader>("./shaders/cube.vs", "./shaders/cube.fs");
     auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
@@ -89,16 +87,18 @@ int main(){
     for(auto mesh : ms){
         mr->addMesh(mesh);
     }
-    sme->addShader(rps);
-    sme->addShader(cubed);
+    
+    ShaderManager::getInstance()->addShader(rps);
+    ShaderManager::getInstance()->addShader(cubed);
+    ShaderManager::getInstance()->addShader(shader);
+    ShaderManager::getInstance()->addShader(surface);
 
     dc->shader = cubed;
     glm::mat4 modelMatrix = glm::mat4(1.0f);
-    dc->shader->use();
     dc->shader->setMat4("model", modelMatrix); 
 
     TrueTypeManager* ttm = new TrueTypeManager("./f2.ttf");
-    TextRenderer tx = TextRenderer(shader.get(),window,ttm);
+    TextRenderer tx = TextRenderer(shader,window,ttm);
     float i = 0;
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
@@ -118,19 +118,16 @@ int main(){
 
         glBindVertexArray(VertexArrayID);
 
-        dc->shader->use();
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         dc->drawSelf();
         
-        mr->shader->use();
         mr->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         mr->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         mr->renderAll();
         //tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;
         
-        ds->shader->use();
         ds->updateSurfaceFromWindow();
         ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);

@@ -8,6 +8,8 @@
 #include <X11/Xutil.h>
 #include <X11/extensions/Xinerama.h>
 
+#include "../../Shaders/ShaderManager.hpp"
+
 DrawSurface::DrawSurface(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::shared_ptr<Transform> transform)
     : vertices(std::move(vertices)), indices(std::move(indices)), transform(std::move(transform))
 {
@@ -196,7 +198,7 @@ void DrawSurface::updateSurfaceFromWindow() {
 }
 
 void DrawSurface::drawSurface(glm::mat4 &view, glm::mat4 &projection) {
-    shader->use(); // Activate the shader program. `Shader` is a hypothetical class that encapsulates OpenGL shaders.
+    ShaderManager::getInstance()->setShader(shader);
     // Set the shader uniforms for the model, view, and projection matrices.
     // `transform->getMatrix()` is a hypothetical function that returns the model matrix for this surface.
     glm::mat4 model = transform->getTransformMatrix();
