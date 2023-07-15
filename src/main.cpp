@@ -70,10 +70,10 @@ int main(){
     GeometryRenderer* gr = new GeometryRenderer();
     gr->addShapeToBuffer(dc);
 
-    auto rps = std::make_shared<Shader>("./shaders/geom.vs", "./shaders/geom.fs");
-    auto cubed = std::make_shared<Shader>("./shaders/cube.vs", "./shaders/cube.fs");
-    auto shader = std::make_shared<Shader>("./shaders/text.vs", "./shaders/text.fs");
-    auto surface = std::make_shared<Shader>("./shaders/surface.vs", "./shaders/surface.fs");
+    auto rps = ShaderManager::getInstance()->buildShader("./shaders/geom.vs", "./shaders/geom.fs");
+    auto cubed = ShaderManager::getInstance()->buildShader("./shaders/cube.vs", "./shaders/cube.fs");
+    auto shader = ShaderManager::getInstance()->buildShader("./shaders/text.vs", "./shaders/text.fs");
+    auto surface = ShaderManager::getInstance()->buildShader("./shaders/surface.vs", "./shaders/surface.fs");
 
     float angle = glm::radians(270.0f);
     std::shared_ptr<DrawSurface> ds = std::make_shared<DrawSurface>(glm::vec2(1.0f,1.0f),DrawSurface::defaultIndicies(),
@@ -87,11 +87,6 @@ int main(){
     for(auto mesh : ms){
         mr->addMesh(mesh);
     }
-    
-    ShaderManager::getInstance()->addShader(rps);
-    ShaderManager::getInstance()->addShader(cubed);
-    ShaderManager::getInstance()->addShader(shader);
-    ShaderManager::getInstance()->addShader(surface);
 
     dc->shader = cubed;
     glm::mat4 modelMatrix = glm::mat4(1.0f);

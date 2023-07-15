@@ -16,14 +16,13 @@ void ShaderManager::setShader(std::shared_ptr<Shader> s)
             current.value()->use();
         }
     }else{
-        Logger::getInstance().warn("Shader with id " + std::to_string(s->ID) + " not found");
+        Logger::getInstance().warn("Shader with id " + std::to_string(s->ID) + " not found (setShader(std::shared_ptr<Shader> s))");
     }
 }
 
 void ShaderManager::setShader(const unsigned int& id)
 {
     if(!id || (current.has_value() && current.value()->ID == id)){
-        Logger::getInstance().warn("Shader with id " + std::to_string(id) + " not found");
         return;
     }
     auto it = std::find_if(shaders.begin(), shaders.end(), [&id](const auto& shader) { return shader->ID == id; });
@@ -33,6 +32,8 @@ void ShaderManager::setShader(const unsigned int& id)
             current = *it;
             current.value()->use();
         }
+    }else{
+        Logger::getInstance().warn("Shader with id " + std::to_string(id) + " not found (setShader(const unsigned int& id)))");
     }
 }
 
@@ -54,7 +55,7 @@ void ShaderManager::addShader(std::shared_ptr<Shader> s)
 void ShaderManager::remShader(std::shared_ptr<Shader> s)
 {
     if(!s || current == s){
-        Logger::getInstance().warn("Shader with id " + std::to_string(s->ID) + " not found");
+        Logger::getInstance().warn("Shader with id " + std::to_string(s->ID) + " not found (remShader(std::shared_ptr<Shader> s)))");
         return;
     }
     auto it = std::find_if(shaders.begin(), shaders.end(), [&s](const auto& shader) { return shader->ID == s->ID; });
@@ -65,4 +66,12 @@ void ShaderManager::remShader(std::shared_ptr<Shader> s)
 
         shaders.erase(it);
     }
+}
+
+std::shared_ptr<Shader> ShaderManager::buildShader(const std::string &vertexPath, const std::string &fragmentPath, const std::string &geometryPath)
+{
+    auto shader = std::make_shared<Shader>(vertexPath.c_str(), fragmentPath.c_str(), geometryPath == "" ? nullptr : geometryPath.c_str());
+    shaders.push_back(shader);
+    Logger::getInstance().warn("Shader with id " + std::to_string(shader->ID) + " built");
+    return shader;
 }

@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <optional>
+#include <string>
 
 class Shader;
 
@@ -24,4 +25,5 @@ public:
     void setShader(const unsigned int& id);
     void addShader(std::shared_ptr<Shader> s);
     void remShader(std::shared_ptr<Shader> s);
+    std::shared_ptr<Shader> buildShader(const std::string& vertexPath, const std::string& fragmentPath, const std::string& geometryPath = std::string(""));
 };
