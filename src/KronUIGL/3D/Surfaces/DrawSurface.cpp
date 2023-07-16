@@ -191,7 +191,7 @@ void DrawSurface::updateSurfaceFromWindow() {
 
     glBindTexture(GL_TEXTURE_2D, textureId);
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, pixelData.data());
-    Logger::getInstance().warn("image updated with size: " + std::to_string(width) + "x" + std::to_string(height));
+    Logger::getInstance().info("image updated with size: " + std::to_string(width) + "x" + std::to_string(height));
 
     XDestroyImage(xImage);
     XCloseDisplay(display);

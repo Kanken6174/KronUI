@@ -45,12 +45,14 @@ void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum se
 
 int main(){
     std::srand(std::time(nullptr));
-    std::cout << "begin" << std::endl;
+    Logger::getInstance().info("KronUI started");
+
     KronUIWindow* window = new KronUIWindow("test", 800, 600); 
-    std::cout << "KronUIWindow" << std::endl;
+    Logger::getInstance().info("KronUIWindow created");
+
     KronUIWindowManager::setWindow(window);
     glEnable( GL_DEBUG_OUTPUT );
-    glDebugMessageCallback( MessageCallback, 0 ); std::cout << "callback" << std::endl;
+    glDebugMessageCallback( MessageCallback, 0 );
     glfwSetCursorPosCallback(window->getSelf(), mouse_callback);
 
     double time = glfwGetTime();
@@ -62,7 +64,7 @@ int main(){
     OBJLoader* loader = new OBJLoader();
 
     std::vector<std::shared_ptr<Mesh>> ms = loader->loadModel("./Ressources/Models/laptop/t1.obj");
-    std::cout << "meshes loaded: " << ms.size() << std::endl;
+    Logger::getInstance().info("meshes loaded: " + std::to_string(ms.size()));
 
     std::unique_ptr<Entity> e = std::make_unique<Entity>();
     
@@ -82,7 +84,6 @@ int main(){
     ds->shader = surface;
     ds->setupSurface();
 
-
     MeshRenderer* mr = new MeshRenderer(cubed);
     for(auto mesh : ms){
         mr->addMesh(mesh);
@@ -99,8 +100,12 @@ int main(){
     float lastFrame = 0.0f;
 
     const float frameTimeTarget = 1.0f / 60.0f; // Time for one frame at 60 FPS.
+
+    glEnable(GL_DEPTH_TEST);
+
     while (!glfwWindowShouldClose(window->getSelf()))
     {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         float frameStart = glfwGetTime();
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
