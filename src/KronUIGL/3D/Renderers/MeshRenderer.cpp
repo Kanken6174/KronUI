@@ -1,5 +1,7 @@
 #include "MeshRenderer.hpp"
 #include "../../Shaders/ShaderManager.hpp"
+#include "../../../../include/logger.hpp"
+#include "../Elements/world.hpp"
 
 void MeshRenderer::prepareQuad()
 {
@@ -63,7 +65,7 @@ void MeshRenderer::renderAll() {
             if (name == "texture_diffuse") {
                 number = std::to_string(diffuseNr++);
                 useTexture = 1;
-            } else if (name == "texture_bump") {
+            }else if (name == "texture_normal") {
                 number = std::to_string(normalNr++);
                 useBump = 1;
             }
@@ -79,6 +81,32 @@ void MeshRenderer::renderAll() {
 
         // Always good practice to set everything back to defaults once configured.
         glActiveTexture(GL_TEXTURE0);
+    }
+}
+
+void MeshRenderer::renderAllWorld() {
+    auto worldInstance = World::getInstance();
+
+    for(auto& entity : worldInstance->entities) {
+        if(entity->mesh) {
+            drawMesh(entity->mesh.value());
+        }
+    }
+
+    // Now let's handle the lights.
+    // Here I assume you are using the same shader for all the meshes and the light properties are uniforms in the shader.
+    // You need to adjust the following codes based on your actual shader and lighting setup.
+    for(size_t i = 0; i < worldInstance->lights.size(); ++i) {
+        std::string lightStr = "lights[" + std::to_string(i) + "]";
+        shader->setVec3(lightStr + ".position", worldInstance->lights[i]->GetTransform()->getPosition());
+        shader->setVec3(lightStr + ".color", worldInstance->lights[i]->GetColor());
+    }
+
+    // Now render all the entities again with the light setup.
+    for(auto& entity : worldInstance->entities) {
+        if(entity->mesh) {
+            drawMesh(entity->mesh.value());
+        }
     }
 }
 

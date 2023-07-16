@@ -21,7 +21,9 @@ public:
     std::optional<Entity*> parent = std::nullopt;
 
     // an entity can have a 3d mesh
-    std::optional<Mesh> mesh = std::nullopt;
+    std::optional<std::shared_ptr<Mesh>> mesh = std::nullopt;
+
+    bool visible = true;
 
     Entity() {}
     Entity(float x, float y, float z) {transform->setEulerAngles(glm::vec3(x,y,z));}

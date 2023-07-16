@@ -9,6 +9,8 @@ set(local_src
     ./transform.cpp
     ./entity.hpp
     ./entity.cpp
+    ./world.hpp
+    ./light.hpp
     )
 
 find_package(GLEW REQUIRED)

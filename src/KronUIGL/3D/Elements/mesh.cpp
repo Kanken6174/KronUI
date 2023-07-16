@@ -8,6 +8,13 @@
 Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, std::shared_ptr<Transform> transform)
     : vertices(std::move(vertices)), indices(std::move(indices)), textures(std::move(textures)), transform(std::move(transform))
 {
+    //check if mesh has a normal texture for bump mapping and set bool
+    for (const auto& texture : textures) {
+        if (texture.type == "texture_normal") {
+            hasNormals = true;
+            break;
+        }
+    }
 }
 
 glm::mat4 Mesh::getTransformMatrix() const {

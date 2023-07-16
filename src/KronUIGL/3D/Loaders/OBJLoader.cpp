@@ -89,9 +89,16 @@ std::shared_ptr<Mesh> OBJLoader::processMesh(aiMesh* mesh, const aiScene* scene)
 
         std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+        Logger::getInstance().warn("Mesh diffuse maps: "+std::to_string(diffuseMaps.size()));
 
         std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
+        Logger::getInstance().warn("Mesh specular maps: "+std::to_string(specularMaps.size()));
+
+        std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+        textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+
+        Logger::getInstance().warn("Mesh normal maps: "+std::to_string(normalMaps.size()));
     }
 
     return std::make_shared<Mesh>(vertices, indices, textures, transformPtr);

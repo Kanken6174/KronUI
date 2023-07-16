@@ -20,6 +20,8 @@ public:
 
     GLuint shaderID;
 
+    bool hasNormals = false;
+
     Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures, std::shared_ptr<Transform> transform);
     std::function<void()> Draw;
     glm::mat4 getTransformMatrix() const;
