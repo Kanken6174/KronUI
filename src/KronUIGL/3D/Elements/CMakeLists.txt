@@ -10,6 +10,7 @@ set(local_src
     ./entity.hpp
     ./entity.cpp
     ./world.hpp
+    ./world.cpp
     ./light.hpp
     )
 

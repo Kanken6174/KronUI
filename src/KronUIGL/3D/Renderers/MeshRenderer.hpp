@@ -33,4 +33,5 @@ public:
 
     void renderAll();   //deprecated
     void renderAllWorld();  //renders all entities in the world
+    void renderSingle(const std::shared_ptr<Mesh>& mesh);
 };

@@ -28,7 +28,7 @@ uniform int usePhong = 1;
 uniform vec3 viewPos = vec3(0.0, 0.0, 0.0);
 
 vec3 calculateAmbient(vec3 color) {
-    return 0.3 * color;
+    return 0.1 * color;
 }
 
 vec3 calculateDiffuse(vec3 lightDir, vec3 normal, vec3 color) {
@@ -50,7 +50,7 @@ void main()
         FragColor = vec4(abs(Position), 1.0);
     }
     else {
-        vec3 color = vec3(1.0);
+        vec3 color = vec3(0.1);
         if (useColor == 1) {
             color = abs(Position);
         }
@@ -70,12 +70,27 @@ void main()
                 vec3 lightDir = normalize(lights[i].position - Position);
                 vec3 viewDir = normalize(viewPos - Position);
                 vec3 normal = normalize(Normal);
+/*
+        if (any(isnan(lightDir))) {
+            FragColor = vec4(1.0, 0.0, 0.0, 1.0);  // Red for lightDir
+            return;
+        }
+        if (any(isnan(viewDir))) {
+            FragColor = vec4(0.0, 1.0, 0.0, 1.0);  // Green for viewDir
+            return;
+        }
+        if (any(isnan(normal))) {
+            FragColor = vec4(0.0, 0.0, 1.0, 1.0);  // Blue for normal
+            return;
+        }
+*/
 
                 vec3 ambient = calculateAmbient(color);
                 vec3 diffuse = calculateDiffuse(lightDir, normal, color);
                 vec3 specular = calculateSpecular(lightDir, viewDir, normal);
+                vec3 finalColor = ambient + diffuse + specular;
 
-                color += lights[i].color * (ambient + diffuse + specular);
+                color += lights[i].color * finalColor;
             }
         }
         FragColor = vec4(color, 1.0);

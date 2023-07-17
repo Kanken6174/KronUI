@@ -4,6 +4,7 @@
 
 #include "./KronUIGL/3D/Renderers/MeshRenderer.hpp"
 #include "./KronUIGL/3D/Surfaces/DrawSurface.hpp"
+#include "./KronUIGL/3D/Elements/world.hpp"
 
 #include "../include/logger.hpp"
 
@@ -60,6 +61,7 @@ int main(){
     glGenVertexArrays(1, &VertexArrayID);
 
     DefaultCube* dc = new DefaultCube(10.0f,0.5f,10.0f, 0.0f, -0.5f, 0.0f);
+    DefaultCube* dc2 = new DefaultCube(0.5f,0.5f,0.5f, 5.0f,0.0f,0.0f);
     
     OBJLoader* loader = new OBJLoader();
 
@@ -71,6 +73,7 @@ int main(){
 
     GeometryRenderer* gr = new GeometryRenderer();
     gr->addShapeToBuffer(dc);
+    gr->addShapeToBuffer(dc2);
 
     auto rps = ShaderManager::getInstance()->buildShader("./shaders/geom.vs", "./shaders/geom.fs");
     auto cubed = ShaderManager::getInstance()->buildShader("./shaders/cube.vs", "./shaders/cube.fs");
@@ -84,14 +87,33 @@ int main(){
     ds->shader = surface;
     ds->setupSurface();
 
+    std::shared_ptr<QuaternionTransform> baseLightTransform = std::make_shared<QuaternionTransform>(glm::vec3(-5.0f,5.0f,-2.0f),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1.0f,1.0f,1.0f));
+    std::shared_ptr<Light> l = std::make_shared<Light>(baseLightTransform,Light::LightType::Point, glm::vec3(1.0f,0.0f,0.0f),0.1f);
+
+    std::shared_ptr<QuaternionTransform> baseLightTransform2 = std::make_shared<QuaternionTransform>(glm::vec3(5.0f,5.0f,-2.0f),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1.0f,1.0f,1.0f));
+    std::shared_ptr<Light> l2 = std::make_shared<Light>(baseLightTransform2,Light::LightType::Point, glm::vec3(0.0f,1.0f,0.0f),0.1f);
+
+    std::shared_ptr<QuaternionTransform> baseLightTransform3 = std::make_shared<QuaternionTransform>(glm::vec3(-5.0f,5.0f,2.0f),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1.0f,1.0f,1.0f));
+    std::shared_ptr<Light> l3 = std::make_shared<Light>(baseLightTransform3,Light::LightType::Point, glm::vec3(0.0f,0.0f,1.0f),1.0f);
+
+
+    World::getInstance()->addLight(l);
+    World::getInstance()->addLight(l2);
+    World::getInstance()->addLight(l3);
+
     MeshRenderer* mr = new MeshRenderer(cubed);
     for(auto mesh : ms){
-        mr->addMesh(mesh);
+        std::shared_ptr<Entity> es = std::make_shared<Entity>(0,0,0,0,0,0);
+        es->mesh = mesh;
+        es->mesh->get()->setupMesh(cubed->ID);
+        World::getInstance()->addEntity(es);
     }
 
     dc->shader = cubed;
+    dc2->shader = cubed;
     glm::mat4 modelMatrix = glm::mat4(1.0f);
     dc->shader->setMat4("model", modelMatrix); 
+    dc2->shader->setMat4("model", modelMatrix);
 
     TrueTypeManager* ttm = new TrueTypeManager("./f2.ttf");
     TextRenderer tx = TextRenderer(shader,window,ttm);
@@ -120,19 +142,22 @@ int main(){
 
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
-        dc->drawSelf();
+        //dc->drawSelf();
+        dc2->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
+        dc2->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
+        dc2->drawSelf();
         
         mr->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         mr->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
-        mr->renderAll();
+        mr->renderAllWorld();
         //tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;
         
-        ds->updateSurfaceFromWindow();
+        /*ds->updateSurfaceFromWindow();
         ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         ds->drawSurface(InputSystem::getInstance().getCamera().viewMatrix, InputSystem::getInstance().getCamera().projectionMatrix);
-
+*/
         glfwSwapBuffers(KronUIWindowManager::getWindow()->getSelf());
         glfwPollEvents();
     }

@@ -39,14 +39,9 @@ void MeshRenderer::drawQuad()
     glEnable(GL_DEPTH_TEST);
 }
 
-void MeshRenderer::renderAll() {
-    ShaderManager::getInstance()->setShader(shader);
-
-    glm::mat4 model = glm::mat4(1.0f);
-
-    for (const std::shared_ptr<Mesh>& mesh : meshes) {
+void MeshRenderer::renderSingle(const std::shared_ptr<Mesh>& mesh) {
         // set the model matrix for the current mesh.
-        model = mesh->transform->getTransformMatrix();
+        glm::mat4 model = mesh->transform->getTransformMatrix();
         shader->setMat4("model", model);
 
         // Check the mesh's textures to enable or disable shader features.
@@ -67,7 +62,7 @@ void MeshRenderer::renderAll() {
                 useTexture = 1;
             }else if (name == "texture_normal") {
                 number = std::to_string(normalNr++);
-                useBump = 1;
+                useBump = 0;
             }
             shader->setInt(("material." + name + number).c_str(), i);
             glBindTexture(GL_TEXTURE_2D, mesh->textures[i].id);
@@ -77,35 +72,56 @@ void MeshRenderer::renderAll() {
         shader->setInt("useTexture", useTexture);
         shader->setInt("useBump", useBump);
         // Draw the mesh.
-        mesh->Draw();
+        if(mesh->Draw)
+            mesh->Draw();
 
         // Always good practice to set everything back to defaults once configured.
         glActiveTexture(GL_TEXTURE0);
+}
+
+void MeshRenderer::renderAll() {
+    ShaderManager::getInstance()->setShader(shader);
+
+    glm::mat4 model = glm::mat4(1.0f);
+
+    for (const std::shared_ptr<Mesh>& mesh : meshes) {
+       renderSingle(mesh);
     }
 }
 
 void MeshRenderer::renderAllWorld() {
-    auto worldInstance = World::getInstance();
+    ShaderManager::getInstance()->setShader(shader);
 
-    for(auto& entity : worldInstance->entities) {
-        if(entity->mesh) {
-            drawMesh(entity->mesh.value());
-        }
+    auto worldInstance = World::getInstance();
+    if(worldInstance == nullptr) {
+        Logger::getInstance().error("World instance is null!");
+        return;
+    }
+    if(worldInstance->entities.size() == 0) {
+        Logger::getInstance().error("World instance has no entities!");
+        return;
     }
 
-    // Now let's handle the lights.
-    // Here I assume you are using the same shader for all the meshes and the light properties are uniforms in the shader.
-    // You need to adjust the following codes based on your actual shader and lighting setup.
+    if(worldInstance->lights.size() == 0) {
+        Logger::getInstance().error("World instance has no lights!");
+        return;
+    }
+
+    // Set light properties
     for(size_t i = 0; i < worldInstance->lights.size(); ++i) {
         std::string lightStr = "lights[" + std::to_string(i) + "]";
         shader->setVec3(lightStr + ".position", worldInstance->lights[i]->GetTransform()->getPosition());
         shader->setVec3(lightStr + ".color", worldInstance->lights[i]->GetColor());
     }
+    shader->setInt("numLights", worldInstance->lights.size());
 
-    // Now render all the entities again with the light setup.
+    // Render entities
     for(auto& entity : worldInstance->entities) {
-        if(entity->mesh) {
+        if(entity->mesh && entity->transform && entity->mesh->get()->VAO != 0) {
+            renderSingle(entity->mesh.value());
             drawMesh(entity->mesh.value());
+        }else{
+            Logger::getInstance().error("Entity has no mesh or transform!");
         }
     }
 }

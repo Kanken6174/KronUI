@@ -1,3 +1,5 @@
+#pragma once
+
 #include "entity.hpp"
 #include "light.hpp"
 #include <memory>
@@ -21,7 +23,12 @@ public:
         }
         return instance;
     }
-};
 
-// Initialize the instance outside the class
-std::shared_ptr<World> World::instance = nullptr;
+    void addLight(std::shared_ptr<Light> l) {
+        lights.push_back(l);
+    }
+
+    void addEntity(std::shared_ptr<Entity> e) {
+        entities.push_back(e);
+    }
+};
