@@ -86,7 +86,8 @@ int main(){
     std::shared_ptr<DrawSurface> ds = std::make_shared<DrawSurface>(glm::vec2(1.0f,1.0f),DrawSurface::defaultIndicies(),
     std::make_shared<QuaternionTransform>(glm::vec3(0.0f,1.0f,0.0f),glm::vec3(3.0f,2.0f,1.0f),glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
 
-    std::shared_ptr<VideoFrame> backgroundFrame = std::make_shared<VideoFrame>("./Ressources/Textures/test_background.png",background, window->getSelf());
+    std::shared_ptr<VideoFrame> backgroundFrame = std::make_shared<VideoFrame>("./Ressources/Textures/wall.jpg",background, window->getSelf(), true);
+    std::shared_ptr<VideoFrame> frontFrame = std::make_shared<VideoFrame>("./Ressources/Textures/hud.png",background, window->getSelf(), false);
 
     ds->shader = surface;
     ds->setupSurface();
@@ -158,7 +159,7 @@ int main(){
         mr->renderAllWorld();
         //tx.RenderText("test", (window->_width/2.5), window->_height/2, i, glm::vec3(1.0f,1.0f,1.0f));
         i+= 0.001f;
-        
+        frontFrame->render();
         /*ds->updateSurfaceFromWindow();
         ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);

@@ -9,17 +9,18 @@ class VideoFrame {
     GLuint VAO, VBO;
     std::vector<GLfloat> vertices = {
         // Positions   // Texture Coords
-        -1.0f,  1.0f,  0.0f, 1.0f,
-        -1.0f, -1.0f,  0.0f, 0.0f,
-         1.0f, -1.0f,  1.0f, 0.0f,
+        -1.0f,  1.0f,  0.0f, 0.0f,
+        -1.0f, -1.0f,  0.0f, 1.0f,
+        1.0f, -1.0f,  1.0f, 1.0f,
 
-        -1.0f,  1.0f,  0.0f, 1.0f,
-         1.0f, -1.0f,  1.0f, 0.0f,
-         1.0f,  1.0f,  1.0f, 1.0f
+        -1.0f,  1.0f,  0.0f, 0.0f,
+        1.0f, -1.0f,  1.0f, 1.0f,
+        1.0f,  1.0f,  1.0f, 0.0f
     };
+    bool back;
 public:
-    VideoFrame(const std::string& pngPath, std::shared_ptr<Shader> shader, GLFWwindow* window)
-        : shader(shader) {
+    VideoFrame(const std::string& pngPath, std::shared_ptr<Shader> shader, GLFWwindow* window, bool back)
+        : shader(shader), back(back) {
         Logger::getInstance().info("Loading texture from " + pngPath);
         glfwGetFramebufferSize(window, &width, &height);
         texture = Texture::loadFromPng(pngPath);
@@ -72,9 +73,19 @@ public:
     }
 
     void render() {
+        GLenum originalDepthFunc;
+        glGetIntegerv(GL_DEPTH_FUNC, (GLint*)&originalDepthFunc); // store original depth function
+
+        if (back) {
+            glDepthFunc(GL_LESS);
+        } else {
+            glDepthFunc(GL_ALWAYS);
+        }
         glDepthMask(GL_FALSE);
         prepareFrame();
         renderQuad();
         glDepthMask(GL_TRUE);
+
+        glDepthFunc(originalDepthFunc); // reset to original depth function
     }
 };
