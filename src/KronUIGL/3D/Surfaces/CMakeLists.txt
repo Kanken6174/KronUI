@@ -5,7 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(local_src
     ./DrawSurface.cpp
-    ./DrawSurface.hpp)
+    ./DrawSurface.hpp
+    ./VideoFrame.hpp)
 
 find_package(GLEW REQUIRED)
 find_package(glfw3 REQUIRED)

@@ -4,6 +4,7 @@
 
 #include "./KronUIGL/3D/Renderers/MeshRenderer.hpp"
 #include "./KronUIGL/3D/Surfaces/DrawSurface.hpp"
+#include "./KronUIGL/3D/Surfaces/VideoFrame.hpp"
 #include "./KronUIGL/3D/Elements/world.hpp"
 
 #include "../include/logger.hpp"
@@ -79,10 +80,13 @@ int main(){
     auto cubed = ShaderManager::getInstance()->buildShader("./shaders/cube.vs", "./shaders/cube.fs");
     auto shader = ShaderManager::getInstance()->buildShader("./shaders/text.vs", "./shaders/text.fs");
     auto surface = ShaderManager::getInstance()->buildShader("./shaders/surface.vs", "./shaders/surface.fs");
+    auto background = ShaderManager::getInstance()->buildShader("./shaders/background.vs", "./shaders/background.fs");
 
     float angle = glm::radians(270.0f);
     std::shared_ptr<DrawSurface> ds = std::make_shared<DrawSurface>(glm::vec2(1.0f,1.0f),DrawSurface::defaultIndicies(),
     std::make_shared<QuaternionTransform>(glm::vec3(0.0f,1.0f,0.0f),glm::vec3(3.0f,2.0f,1.0f),glm::angleAxis(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
+
+    std::shared_ptr<VideoFrame> backgroundFrame = std::make_shared<VideoFrame>("./Ressources/Textures/test_background.png",background, window->getSelf());
 
     ds->shader = surface;
     ds->setupSurface();
@@ -93,12 +97,11 @@ int main(){
     std::shared_ptr<QuaternionTransform> baseLightTransform2 = std::make_shared<QuaternionTransform>(glm::vec3(5.0f,5.0f,-2.0f),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1.0f,1.0f,1.0f));
     std::shared_ptr<Light> l2 = std::make_shared<Light>(baseLightTransform2,Light::LightType::Point, glm::vec3(0.0f,1.0f,0.0f),0.1f);
 
-    std::shared_ptr<QuaternionTransform> baseLightTransform3 = std::make_shared<QuaternionTransform>(glm::vec3(-5.0f,5.0f,2.0f),glm::vec3(1.0f,1.0f,1.0f),glm::vec3(1.0f,1.0f,1.0f));
-    std::shared_ptr<Light> l3 = std::make_shared<Light>(baseLightTransform3,Light::LightType::Point, glm::vec3(0.0f,0.0f,1.0f),1.0f);
+    std::shared_ptr<Light> l3 = std::make_shared<Light>(InputSystem::getInstance().getCamera().transform,Light::LightType::Point, glm::vec3(0.0f,0.0f,1.0f),1.0f);
 
 
     World::getInstance()->addLight(l);
-    World::getInstance()->addLight(l2);
+    //World::getInstance()->addLight(l2);
     World::getInstance()->addLight(l3);
 
     MeshRenderer* mr = new MeshRenderer(cubed);
@@ -125,9 +128,10 @@ int main(){
 
     glEnable(GL_DEPTH_TEST);
 
+    backgroundFrame->prepareFrame();
+
     while (!glfwWindowShouldClose(window->getSelf()))
     {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         float frameStart = glfwGetTime();
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -136,9 +140,11 @@ int main(){
         processInput(window->getSelf(), deltaTime);
 
         // Clear the screen
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glBindVertexArray(VertexArrayID);
+
+        backgroundFrame->render();
 
         dc->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         dc->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
@@ -157,7 +163,8 @@ int main(){
         ds->shader->setMat4("view", InputSystem::getInstance().getCamera().viewMatrix);
         ds->shader->setMat4("projection", InputSystem::getInstance().getCamera().projectionMatrix);
         ds->drawSurface(InputSystem::getInstance().getCamera().viewMatrix, InputSystem::getInstance().getCamera().projectionMatrix);
-*/
+*/      glClear(GL_DEPTH_BUFFER_BIT);
+
         glfwSwapBuffers(KronUIWindowManager::getWindow()->getSelf());
         glfwPollEvents();
     }
